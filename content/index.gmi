@@ -14,9 +14,8 @@ Evoti
 Voyki
 Kasaival
 
-
-## Flower
-words and ideas that bloom
-
+## Flowers
+not by me
+ideas and projects
 => quotes.gmi Quotes
 => petals.gmi Petals
