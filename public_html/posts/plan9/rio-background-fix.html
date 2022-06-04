@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>を Wolfi ☬ Space づ</title>
+	<link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="/static/style/style.css" type="text/css" media="screen, handheld" title="default">
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+</head>
+<body>
+
+
+ 
+<header>
+    <h1>
+        <p>W☯lfi
+        <a href="/">☬</a>
+        Spce</p>
+
+    </h1>
+</header>
+
+<article>
+<h1>rio.c file</h1>
+<pre><code>...
+
+void resized(void);
+
+# add this line at the top after void resized
+void fix(void);
+
+
+...
+
+# add the fix function before the redraw function
+void
+fix(void)
+{
+    if(getwindow(display, Refnone) &lt; 0)
+        error(&quot;failed to re-attach window&quot;);
+    freescrtemps();
+    view = screen;
+
+    wscreen = allocscreen(screen, col[Colrioback], 0);
+    draw(view, view-&gt;r, col[Colrioback], nil, ZP);
+    flushimage(display, 1);
+}
+
+# add a variable to make sure that the function is only used once
+once = 0;
+
+# inside the redraw frunction add the if statemnet to run the fix function once
+void
+redraw(void)
+{
+    if (once == 0) {
+        fix();
+        once = 1;
+    }
+...
+
+</code></pre>
+</article>
+
+<footer>
+<a href="https://www.minds.com/waotzi/" target="_blank">
+<img src="/static/icons/minds.svg" alt="minds"/>
+</a>
+<a href="https://matrix.to/#/@waotzi:minds.com" target="_blank">
+<img src="/static/icons/matrix.svg" alt="matrix"/>
+</a>
+<a href="https://t.me/waotzi" target="_blank">
+<img src="/static/icons/telegram.svg" alt="telegram"/>
+</a>
+<a href="https://alpega.space/@wolfi" target="_blank">
+<img src="/static/icons/soapbox.png" alt="fediverse"/>
+</a>
+<a href="https://twitter.com/waotzi" target="_blank">
+<img src="/static/icons/twitter.svg" alt="twitter"/>
+</a>
+<a href="https://waotzi.itch.io/" target="_blank">
+<img src="/static/icons/itchio.svg" alt="itch.io"/>
+</a>
+<a href="https://sr.ht/~wolfi/" target="_blank">
+<img src="/static/icons/sourcehut.svg" alt="sourcehut"/>
+</a>
+</footer>
+</html>

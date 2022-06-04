@@ -1,0 +1,42 @@
+# rio.c file
+
+
+```
+...
+
+void resized(void);
+
+# add this line at the top after void resized
+void fix(void);
+
+
+...
+
+# add the fix function before the redraw function
+void
+fix(void)
+{
+	if(getwindow(display, Refnone) < 0)
+		error("failed to re-attach window");
+	freescrtemps();
+	view = screen;
+
+	wscreen = allocscreen(screen, col[Colrioback], 0);
+	draw(view, view->r, col[Colrioback], nil, ZP);
+	flushimage(display, 1);
+}
+
+# add a variable to make sure that the function is only used once
+once = 0;
+
+# inside the redraw frunction add the if statemnet to run the fix function once
+void
+redraw(void)
+{
+	if (once == 0) {
+		fix();
+		once = 1;
+	}
+...
+
+```

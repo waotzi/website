@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title></title>
+<link href="wolfi.srht.site"/>
+<link rel="self" href="wolfi.srht.site"/>
+<updated>2022-06-04T02:37:09+02:00</updated>
+<id>wolfi.srht.site</id>
+<entry>
+	<title>Fresh Beginnings</title>
+	<link href="wolfi.srht.site/posts/2022-06-02.gmi"/>
+	<id>wolfi.srht.site/posts/2022-06-02.gmi</id>
+	<updated>2022-06-02T00:00:00Z</updated>
+	<content src="wolfi.srht.site/posts/2022-06-02.gmi" type="text/gemini"></content>
+</entry>
+
+<entry>
+	<title>Plan 9 Exploration</title>
+	<link href="wolfi.srht.site/posts/2021-05-23.gmi"/>
+	<id>wolfi.srht.site/posts/2021-05-23.gmi</id>
+	<updated>2021-05-23T00:00:00Z</updated>
+	<content src="wolfi.srht.site/posts/2021-05-23.gmi" type="text/gemini"></content>
+</entry>
+
+<entry>
+	<title>Clingy Tree</title>
+	<link href="wolfi.srht.site/posts/2020-09-30.gmi"/>
+	<id>wolfi.srht.site/posts/2020-09-30.gmi</id>
+	<updated>2020-09-30T00:00:00Z</updated>
+	<content src="wolfi.srht.site/posts/2020-09-30.gmi" type="text/gemini"></content>
+</entry>
+
+<entry>
+	<title>rio.c file</title>
+	<link href="wolfi.srht.site/posts/plan9/rio-background-fix.gmi"/>
+	<id>wolfi.srht.site/posts/plan9/rio-background-fix.gmi</id>
+	<updated>0001-01-01T00:00:00Z</updated>
+	<content src="wolfi.srht.site/posts/plan9/rio-background-fix.gmi" type="text/gemini"></content>
+</entry>
+</feed>

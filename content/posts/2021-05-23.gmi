@@ -1,0 +1,83 @@
+# Plan 9 Exploration
+
+
+=> ../static/glenda_space.png Glenda Space
+=> http://9fs.net 9front
+
+- profile file = $home/lib/profile
+- riostart file = $home/rc/bin/riostart
+
+## add permanent keyboard layout change
+
+simply add this line with the kbmap you want to use to your profile file in the terminal case
+
+> cat /sys/lib/kbmap/dvorak > /dev/kbmap
+
+
+## sync time automatically at start
+
+just add this line to the profile file in the terminal case
+
+> aux/timesync -n pool.ntp.org
+
+=> https://clueelf.wordpress.com/2018/06/29/clocks-time-ntp-plan9-9front/ source
+
+
+## fix "buggy" spawned terminal
+
+in your riostart file ($profile/bin/rc) simply remove the following line:
+> ; ~ $#console 0 || window -scroll console
+
+and replace it with
+
+> window -scroll 
+
+## fixing the background
+
+first of all make sure to follow this tutorial to get the theme patch on rio working. 
+=> http://www.ftrv.se/14 tutorial
+
+(if by accident you run the patch twice then you will get a lot of errors and you need to reset the hg tree and get the original rio files again)
+
+once you got themes working go to
+ 
+> cd /sys/src/cmd/rio
+
+> acme rio.c 
+
+and simply follow the short guide to my rio background fix
+
+=> plan9/rio-background-fix.gmi rio-background-fix 
+
+
+for some reason the background is buggy until the rio window is resized, so the "bug fix" i made is just a stripped down version of the resized funcion in rio.c and i put it in redraw to execute in once since i did not know where else to put it to make sure it is run once at the start. 
+
+after the code as been fixed make sure to run mk and if no bugs were encountered run
+
+> mk install
+
+## werc
+
+this tutorial is great. I was just confused on how to start the listener. Runnig this line fixed the problem.
+=> http://docs.a-b.xyz/rc-httpd-werc.html tutorial
+
+> aux/listen
+
+to get the web server working and i also struggled at first to comprehend how to use the sites directory.
+
+Simply make a folder with your local ip such as 192.168.0.2 and you can use it immediatley with wer c if everything is set up correctly.
+
+you can also set up a loopback to use other local folders in the sites directory such as 127.0.0.1 or localhost
+
+> ip/ipconfig loopback add 127.0.0.1
+
+
+## useful links
+
+=> http://doc.cat-v.org/plan_9/4th_edition/papers/rc Rc - The Plan 9 Shell
+
+=> https://luksamuk.codes/posts/plan9-setup-rpi.html#org495babf Setup CPU Server on RPI
+
+=> http://fqa.9front.org/fqa8.html#8.6.1 9front FQA
+
+=> https://plan9docs.wordpress.com/2012/05/08/getting-getting-contributed-packages-installed-on-plan9 Contrib package manager
