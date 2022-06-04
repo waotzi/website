@@ -1,5 +1,5 @@
 title = "Wolfi's gemlog"
-url = "wolfi.srht.site"
+url = "wolfi.space"
 source_dir = "content"
 dest_dir = "public"
 template_dir = "templates"
