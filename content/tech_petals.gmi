@@ -1,0 +1,48 @@
+# Minimalist Tech Sack
+## Programming Languages
+=> https://100r.co/site/uxn.html uxn
+
+## Project hub
+=> https://sr.ht Sourcehut
+
+## Operating System
+=> https://9p.io/plan9/ plan9
+=> https://9front.org/ 9front
+
+# Full Gear Tech Stack
+## Ad block
+=> https://ublockorigin.com/ uBlock Origin
+
+## Browser
+=> https://brave.com/ Brave
+
+## Communication 
+=> https://cwtch.im/ Cwtch
+
+## Game engine
+=> https://godotengine.org/ Godot
+
+## Project hub
+=> https://gitea.io/en-us/ Gitea
+=> https://codeberg.org/ Codeberg
+
+## Searching
+=> https://search.brave.com/ Brave Search
+
+## Social
+=> https://www.minds.com/ Minds
+=> https://pleroma.social/ Pleroma
+=> https://soapbox.pub/ Soapbox
+
+## Operating Systems
+=> https://manjaro.org/ Manjaro
+=> https://www.opensuse.org/ openSUSE
+
+## Programming Languages
+=> https://ziglang.org/ Zig
+
+# Android
+=> https://f-droid.org/en/ F-Droid
+=> https://newpipe.net/ NewPipe
+=> https://termux.com/ Termux
+=> https://grapheneos.org/ GrapheneOS
