@@ -10,7 +10,6 @@ tpl="templates_html"
 # add build folder
 mkdir -p $build/posts
 mkdir -p $build/static
-mkdir -p $temp
 
 # copy static content to build folder
 cp -r $src/static/* $build/static

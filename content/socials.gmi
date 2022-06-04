@@ -1,9 +1,14 @@
 # Socials
 
+## Private Messaging
 => https://t.me/waotzi Telegram
-=> https://www.minds.com/waotzi/ Minds
 => https://matrix.to/#/@waotzi:minds.com Matrix
+
+## Social Media
+=> https://www.minds.com/waotzi/ Minds
 => https://alpega.space/@wolfi Pleroma
+
+## Projects
 => https://waotzi.itch.io/ Itch.io
 => https://sr.ht/~wolfi/ Sourcehut
 => https://codeberg.org/wolfi Codeberg
