@@ -13,3 +13,6 @@
 => https://sr.ht/~wolfi/ Sourcehut
 => https://codeberg.org/wolfi Codeberg
 
+## Donate
+=> https://liberapay.com/wolfi/ Liberapay
+=> donate.gmi Cryptocurrency

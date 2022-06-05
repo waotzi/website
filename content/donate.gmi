@@ -1,0 +1,10 @@
+# Support me
+
+## Ethereum, Polygon, etc...
+=> static/erc20.png erc20 qr_code
+0x241Af3757F46c15B9b06d4987716B416795EA354
+Any token and network compatible with this address appreciated
+
+## Litecoin
+=> static/litecoin.png litecoin qr_code
+ltc1qtznke4qsh0zt9jrc42nhhpvckcmv75wzzm5tew
