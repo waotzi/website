@@ -9,7 +9,7 @@
 => https://alpega.space/@wolfi Pleroma
 => https://liberapay.com/wolfi/ Twitter
 
-## Projects
+## Projects Hub
 => https://waotzi.itch.io/ Itch.io
 => https://sr.ht/~wolfi/ Sourcehut
 => https://codeberg.org/wolfi Codeberg
