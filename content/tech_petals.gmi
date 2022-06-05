@@ -45,4 +45,3 @@
 => https://f-droid.org/en/ F-Droid
 => https://newpipe.net/ NewPipe
 => https://termux.com/ Termux
-=> https://grapheneos.org/ GrapheneOS
