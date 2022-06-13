@@ -18,8 +18,10 @@ Cooperative score voting web application.
 ### wip
  - Voyki
  - Kasaival
+
 ### Geocats
 wrk: 2021 - 2022
+
 A Retro-style 2D Action Platformer
 
 => https://geocats.net Website

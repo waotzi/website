@@ -50,3 +50,4 @@ parse_me () {
 
 # parse all markdown files and add the templates to them
 parse_me $(find ./$src -type f -name "*.gmi")
+
