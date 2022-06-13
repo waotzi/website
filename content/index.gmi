@@ -1,21 +1,11 @@
-
+# Home
 just another gemlog in cyberspace
 
 => socials.gmi Socials
+=> proj.gmi Projects
+=> flowers.gmi Inspiration
 
-## Projects
-### Tools
-#### wip
-Evoti
-### Games 
-#### 2022
-=> https://nonaco.itch.io/geocats Geocats
-#### wip
-Voyki
-Kasaival
+## Versions
 
-## Flowers
-not by me
-ideas and projects
-=> quotes.gmi Quotes
-=> petals.gmi Petals
+=> gemini://wolfi.space Gemlog Version
+=> https://wolfi.space Http Version
