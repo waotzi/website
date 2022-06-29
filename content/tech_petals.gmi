@@ -1,9 +1,18 @@
 # Minimalist Tech Sack
+## Browser
+=> https://gmi.skyjake.fi/lagrange/ Lagrange
+
 ## Programming Languages
 => https://100r.co/site/uxn.html uxn
+=> https://harelang.org/ hare
+=> https://www.lua.org/ lua
+=> https://c9x.me/compile/ qbe
 
 ## Project hub
 => https://sr.ht Sourcehut
+
+## Protocols
+=> https://gemini.circumlunar.space/ Gemini
 
 ## Operating System
 => https://9p.io/plan9/ plan9
