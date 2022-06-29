@@ -3,10 +3,10 @@
 => https://gmi.skyjake.fi/lagrange/ Lagrange
 
 ## Programming Languages
-=> https://100r.co/site/uxn.html uxn
 => https://harelang.org/ hare
 => https://www.lua.org/ lua
 => https://c9x.me/compile/ qbe
+=> https://100r.co/site/uxn.html uxn
 
 ## Project hub
 => https://sr.ht Sourcehut
@@ -15,17 +15,17 @@
 => https://gemini.circumlunar.space/ Gemini
 
 ## Operating System
-=> https://9p.io/plan9/ plan9
 => https://9front.org/ 9front
+=> https://9p.io/plan9/ plan9
 
 # Full Gear Tech Stack
-## Ad block
-=> https://ublockorigin.com/ uBlock Origin
 
 ## Browser
 => https://brave.com/ Brave
+### Extensions
+=> https://ublockorigin.com/ uBlock Origin
 
-## Communication 
+## Communication
 => https://cwtch.im/ Cwtch
 
 ## Game dev
@@ -33,8 +33,8 @@
 => https://www.raylib.com/ raylib
 
 ## Project hub
-=> https://gitea.io/en-us/ Gitea
 => https://codeberg.org/ Codeberg
+=> https://gitea.io/en-us/ Gitea
 
 ## Searching
 => https://search.brave.com/ Brave Search
@@ -49,9 +49,11 @@
 => https://www.opensuse.org/ openSUSE
 
 ## Programming Languages
+=> https://www.python.org/ Python
 => https://ziglang.org/ Zig
 
 # Android
 => https://f-droid.org/en/ F-Droid
+=> https://husky.adol.pw/ Husky
 => https://newpipe.net/ NewPipe
 => https://termux.com/ Termux
