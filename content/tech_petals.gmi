@@ -45,8 +45,7 @@
 => https://soapbox.pub/ Soapbox
 
 ## Operating Systems
-=> https://manjaro.org/ Manjaro
-=> https://www.opensuse.org/ openSUSE
+=> https://garudalinux.org/ Garuda Linux
 
 ## Programming Languages
 => https://www.python.org/ Python
