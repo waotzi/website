@@ -43,6 +43,7 @@
 => https://www.minds.com/ Minds
 => https://pleroma.social/ Pleroma
 => https://soapbox.pub/ Soapbox
+=> https://jointhefedi.com/ Join the Fediverse!
 
 ## Operating Systems
 => https://garudalinux.org/ Garuda Linux
