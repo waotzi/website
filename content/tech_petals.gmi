@@ -3,10 +3,7 @@
 => https://gmi.skyjake.fi/lagrange/ Lagrange
 
 ## Programming Languages
-=> https://harelang.org/ hare
 => https://www.lua.org/ lua
-=> https://c9x.me/compile/ qbe
-=> https://100r.co/site/uxn.html uxn
 
 ## Project hub
 => https://sr.ht Sourcehut
