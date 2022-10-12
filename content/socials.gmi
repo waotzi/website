@@ -7,13 +7,13 @@
 ## Social Media
 => https://www.minds.com/waotzi/ Minds
 => https://gleasonator.com/@wolfi Fediverse
-=> https://liberapay.com/wolfi/ Twitter
+=> https://twitter.com/waotzi Twitter
 
 ## Projects Hub
 => https://waotzi.itch.io/ Itch.io
 => https://sr.ht/~wolfi/ Sourcehut
-=> https://codeberg.org/wolfi Codeberg
+=> https://codeberg.org/waotzi Codeberg
 
 ## Donate
-=> https://liberapay.com/wolfi/ Liberapay
+=> https://liberapay.com/waotzi/ Liberapay
 => donate.gmi Cryptocurrency

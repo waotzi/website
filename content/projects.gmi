@@ -3,27 +3,19 @@
 # Projects
 ## Tools
 
-### wip
-evoti.co
-
 ### Ukuvota
-wrk: 2017 - 2018
-
 Cooperative score voting web application.
 
 => https://ukuvota.world/ Web app
-=> https://gitlab.com/yunity/ukuvota Source code
+=> https://codeberg.org/Ukuvota/Ukuvota Source code
 
 ## Games 
-### wip
- - Voyki
- - Kasaival
 
 ### Geocats
 wrk: 2021 - 2022
 
 A Retro-style 2D Action Platformer
 
-=> https://geocats.net Website
+=> https://geocats.netlify.app/ Website
 => https://nonaco.itch.io/geocats Play here!
 => https://gitlab.com/nonaco/geocats Source code

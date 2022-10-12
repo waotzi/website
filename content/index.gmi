@@ -1,11 +1,13 @@
-# Home
-just another gemlog in cyberspace
+wao tzi wao tzu wo zu wozu
 
-=> socials.gmi Socials
-=> proj.gmi Projects
-=> flowers.gmi Inspiration
+question and wonder
 
-## Versions
+=> who.gmi about me - Who am I?
+=> socials.gmi socials - Where can I find you?
+=> projects.gmi projects - What do you do? 
+=> flowers.gmi flowers - What inspires you? 
 
-=> gemini://wolfi.space Gemlog Version
-=> https://wolfi.space Http Version
+here
+
+=> gemini://waotzi.org Gemlog Version
+=> https://waotzi.org Http Version
