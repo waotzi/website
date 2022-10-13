@@ -4,10 +4,6 @@ Tools, knowledge, inspiration, etc...
 
 => tech_petals.gmi Tech Recommendations
 
-## Cryptocurrency
-=> https://beam.mw/ Beam
-=> https://litecoin.org/ Litecoin
-
 ## Education
 => https://vimeo.com/170477689 The Kin School in Tekos
 

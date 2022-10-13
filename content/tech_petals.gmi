@@ -19,11 +19,16 @@
 
 ## Browser
 => https://brave.com/ Brave
-### Extensions
-=> https://ublockorigin.com/ uBlock Origin
 
 ## Communication
 => https://cwtch.im/ Cwtch
+
+## Cryptocurrency
+=> https://beam.mw/ Beam
+=> https://litecoin.org/ Litecoin
+
+### Extensions
+=> https://ublockorigin.com/ uBlock Origin
 
 ## Game dev
 => https://godotengine.org/ Godot
