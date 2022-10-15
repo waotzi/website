@@ -7,4 +7,4 @@ Any token and network compatible with this address appreciated
 
 ## Litecoin
 => static/litecoin.png litecoin qr_code
-ltc1qtznke4qsh0zt9jrc42nhhpvckcmv75wzzm5tew
+LSTAUZ1d9HzhPmV6iZYiG4si19v4d8bZKP
