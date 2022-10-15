@@ -1,6 +1,7 @@
 # Socials
 
 ## Private Messaging
+=> mailto:waotzi@pm.me Email
 => https://t.me/waotzi Telegram
 => https://matrix.to/#/@waotzi:minds.com Matrix
 

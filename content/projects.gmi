@@ -1,16 +1,13 @@
 
 
 # Projects
-## Tools
-
 ### Ukuvota
 Cooperative score voting web application.
 
 => https://ukuvota.world/ Web app
 => https://codeberg.org/Ukuvota/Ukuvota Source code
 
-## Games 
-
+# Archive
 ### Geocats
 wrk: 2021 - 2022
 
@@ -19,3 +16,4 @@ A Retro-style 2D Action Platformer
 => https://geocats.netlify.app/ Website
 => https://nonaco.itch.io/geocats Play here!
 => https://gitlab.com/nonaco/geocats Source code
+
