@@ -1,6 +1,6 @@
 #!/bin/sh
 
-./build_html.sh
-cd public_html
+./build.lua
+cd public/html
 ran
 

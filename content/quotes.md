@@ -1,3 +1,6 @@
+---
+title: Quotes
+---
 
 # ★ Quotes
 

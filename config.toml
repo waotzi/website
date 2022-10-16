@@ -1,6 +1,0 @@
-title = "Waotzi's gemlog"
-url = "waotzi.org"
-source_dir = "content"
-dest_dir = "public"
-template_dir = "templates"
-feed_path = "posts/"

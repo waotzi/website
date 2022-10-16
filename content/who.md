@@ -1,3 +1,12 @@
+---
+title: About
+image: waotzi.jpg
+---
+
+![waotzi](/static/waotzi.jpg)
+
+# wo φ zu
+
 I am just another man, with a simple dream of a simple life.
 
 I do not wish you harm, I only wish you to be free and to live in harmony.

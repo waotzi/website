@@ -124,3 +124,9 @@ pre code {
 .big {
    font-size: 2.5em;
 }
+#projects {
+  text-align: center;
+}
+#projects img {
+  width: 64px;
+}

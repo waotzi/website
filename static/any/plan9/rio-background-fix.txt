@@ -1,7 +1,3 @@
-# rio.c file
-
-
-```
 ...
 
 void resized(void);
@@ -38,5 +34,3 @@ redraw(void)
 		once = 1;
 	}
 ...
-
-```
