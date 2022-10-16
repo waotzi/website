@@ -2,20 +2,27 @@
 <html>
 <head>
     <title>{{$toptitle}}</title>
-    <meta property='og:title'  content='{{$title}}'>
-    <meta name='twitter:title' content='{{$title}}'>
 	<link rel="icon" type="image/png" href="/static/favicon.png" />
     <link rel="stylesheet" href="/static/style/style.css" type="text/css" media="screen, handheld" title="default">
+    <link rel='canonical'       href='{{$url}}'>
     <meta charset="UTF-8">
     <meta name="description" content="{{$description}}">
     <meta name="keywords" content="{{$tags}}">
     <meta name="author" content="{{$author}}">
-    <link rel='canonical'       href='{{$url}}'>
-    <meta property='og:url'  content='{{$url}}'>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@waotzi" />
+    <meta name="twitter:creator" content="@waotzi" />
+    <meta name='twitter:title' content='{{$title}}'>
     <meta name='twitter:url' content='{{$url}}'>
-    <meta property="og:image"  content="{{$image}}">
     <meta name="twitter:image" content="{{$image}}">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property='og:title'  content='{{$title}}'>
+    <meta property='og:description'  content='{{$description}}'>
+    <meta property='og:url'  content='{{$url}}'>
+    <meta property="og:image"  content="{{$image}}">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 </head>
 <body>
