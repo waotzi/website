@@ -9,25 +9,30 @@
 
 
 body {
-   font-family: fsex300;
-   font-size: large;
-   line-height: 1.5em;
-   letter-spacing: 0.1em;   
-   margin: auto;
-   max-width: 700px;
-	background-color: #270729;
-	color: #dfffff;
+  font-family: fsex300;
+  font-size: large;
+  line-height: 1.5em;
+  letter-spacing: 0.1em;   
+  margin: auto;
+  max-width: 700px;
+  background-color: #270729;
+  color: #dfffff;
 }
 
 
 article { flex-basis: 100%; padding: 0 1em; }
 
 footer {
+  display: flex;
+  flex-wrap: wrap;
   flex-basis: 100%;
   flex-shrink: 0;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
+footer a {
+  padding: 0.5rem;
+}
 nav a { text-decoration: none ; color: inherit; }
 
 
@@ -95,38 +100,10 @@ pre code {
   font-family: fsex300;
 
 }
-.cards {
-   display: flex;
-   flex-wrap: wrap;
-   align-items: center;
-   justify-content: space-around;
-}
-.card {
-   width: 280px;
-   border-radius: 2%;
-	background-color: #570759;
-   margin: 20px;
-   padding-bottom: 1em;
-   text-align: center;
 
-}
-.quote {
-   padding-top: 1em;
-}
-.card img {
-   opacity: 0.8;
-   border-radius: 2% 2% 0 0;
-   width: 100%;
-}
-.card img:hover {
-   opacity: 1;
-}
-.big {
-   font-size: 2.5em;
-}
-#projects {
+#profolio {
   text-align: center;
 }
-#projects img {
+#profolio img {
   width: 64px;
 }

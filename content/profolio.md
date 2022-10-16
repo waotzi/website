@@ -1,5 +1,7 @@
 ---
-title: Projects
+title: Profolio
+description: Here are some of the projects I have worked on, may you find something you enjoy.
+image: projects/ukuvota.png
 ---
 
 
@@ -15,6 +17,8 @@ Cooperative score voting web application.
 [Source code](https://codeberg.org/Ukuvota/Ukuvota)
 
 <br/>
+
+[![Geocats](/static/projects/geocats.png)](https://geocats.netlify.app/)
 
 ## Geocats
 

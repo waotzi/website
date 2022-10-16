@@ -7,7 +7,7 @@ question and wonder
 
 [socials - Where can I find you?](socials.md)
 
-[projects - What do you do?](projects.md)
+[profolio - What do you do?](profolio.md)
 
 [flowers - What inspires you?](flowers.md)
 
