@@ -137,7 +137,7 @@ local function update_rss(file_name, main_url)
     return xml_data, rss_meta
 end
 
-local function add_xml_entry(xml_data, rtn_meta, meta, file_url, gemini)
+local function add_xml_entry(xml_data, rtn_meta, meta, file_url, summary, gemini)
     for k, v in pairs(meta) do
         rtn_meta[k] = v
     end
@@ -149,10 +149,11 @@ local function add_xml_entry(xml_data, rtn_meta, meta, file_url, gemini)
 	xml_data = xml_data .. '<link href="' .. file_url .. '"/>\n'
 	xml_data = xml_data .. '<id>' .. file_url .. '</id>\n'
 	xml_data = xml_data .. '<updated>' .. date.. '</updated>\n'
-    xml_data = xml_data .. '<summary>' .. rtn_meta['description'] .. '</summary>\n'
 
     if gemini then
         xml_data = xml_data .. '<content src="' .. file_url .. '" type="text/gemini"></content>\n'
+    else 
+        xml_data = xml_data .. '<summary><![CDATA[' .. summary .. ']]></summary>\n'
     end
     xml_data = xml_data .. '</entry>\n'
     return xml_data
@@ -196,8 +197,15 @@ local function build_md()
 
         local xml_md_path_gmi = md_path:gsub('.md', '.gmi')
         local xml_md_path_html = md_path:gsub('.md', '.html')
-        xml_gmi = add_xml_entry(xml_gmi, xml_gmi_meta, meta, xml_md_path_gmi, true)
-        xml_html = add_xml_entry(xml_html, xml_html_meta, meta, xml_md_path_html, false)
+        local summary_file = post_path .. '.tmp'
+        os.execute('touch ' .. summary_file)
+        os.execute('sed "1{/^---$/!q;};1,/^---$/d" ' .. post_path .. ' > ' .. summary_file)
+        summary = os_capture('md2html ' .. summary_file)
+        os.execute('rm ' .. summary_file)
+
+
+        xml_gmi = add_xml_entry(xml_gmi, xml_gmi_meta, meta, xml_md_path_gmi, summary, true)
+        xml_html = add_xml_entry(xml_html, xml_html_meta, meta, xml_md_path_html, summary, false)
         -- add date to posts
         exgest(post_file, meta.title  .. ' was published on ' .. date)
 
