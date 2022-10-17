@@ -20,7 +20,11 @@ body {
 }
 
 
-article { flex-basis: 100%; padding: 0 1em; }
+article {
+  flex-basis: 100%;
+  padding: 0 1em;
+  overflow-wrap: break-word;
+}
 
 footer {
   display: flex;
@@ -106,4 +110,9 @@ pre code {
 }
 #profolio img {
   width: 64px;
+}
+
+
+#donate img {
+  width: 128px;
 }

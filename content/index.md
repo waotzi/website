@@ -12,6 +12,8 @@ question and wonder
 [flowers - What inspires you?](flowers.md)
 
 
+[donate - Support me](donate.md)
+
 here
 
 [Gemlog Version](gemini://waotzi.org)

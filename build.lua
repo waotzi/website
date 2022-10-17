@@ -162,7 +162,7 @@ local function build_gmi()
         local file_name = get_file_path(split(file_path, '/'),  3, 1):gsub('.md', '.gmi')
 
         os.execute('md2gemini -m -w -f -s ' .. file_path .. ' -d ' .. pub_gmi .. p)
-        if file_name ~= 'index.gmi' then
+        if file_name ~= '/index.gmi' then
             exgest(pub_gmi .. file_name, '\n\n=> ' .. gmi_home_url .. ' Go home')
         end
     end
