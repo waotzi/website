@@ -12,12 +12,12 @@ local pub_gmi = pub_folder .. '/gmi'
 local pub_html = pub_folder .. '/html'
 
 local static_folder = 'static'
-local static_all = static_folder .. '/any'
+local static_any = static_folder .. '/any'
 local static_gmi = static_folder .. '/gmi'
 local static_html = static_folder .. '/html'
 
 local partials_folder = 'partials'
-local partials_all = partials_folder .. '/any'
+local partials_any = partials_folder .. '/any'
 local partials_gmi = partials_folder .. '/gmi'
 local partials_html = partials_folder .. '/html'
 
@@ -135,10 +135,13 @@ local function copy_static_files(s_folder, p_folder)
 
     -- copy static files
     if isDir(s_folder) then
-        
         os.execute('cp -r ' .. s_folder .. '/* ' .. p_folder .. '/static')
     end
     
+end
+
+local function build_rss()
+    os.execute('cp ' .. partials_any .. '/atom.xml ' .. pub_gmi .. '/static/')
 end
 
 -- process public_md for public_gmi
@@ -149,8 +152,11 @@ local function build_gmi()
     end
 
     -- copy static files
-    copy_static_files(static_all, pub_gmi)
+    copy_static_files(static_any, pub_gmi)
     copy_static_files(static_gmi, pub_gmi)
+
+    -- do rss
+    build_rss()
 
     -- convert md to gmi
     local files = getFiles(pub_md)
@@ -176,7 +182,7 @@ local function build_html()
     end
 
     -- copy static files
-    copy_static_files(static_all, pub_html)
+    copy_static_files(static_any, pub_html)
     copy_static_files(static_html, pub_html)
 
     -- convert md to html
@@ -196,6 +202,7 @@ local function build_html()
             title = 'を  wao ☬ tzi  づ',
             image = main_url .. '/static/waotzi.jpg',
             author = 'waotzi',
+            twitter = '@waotzi',
             description = 'Personal cyberspace of waotzi',
             tags = 'waotzi, cyberspace, projects, personal, ukuvota'
         }
@@ -222,7 +229,7 @@ local function build_html()
         end
         local head = ingest(partials_html .. '/head.html')
         for k, v in pairs(default_meta) do
-            head = head:gsub('{{$' .. k .. '}}', v)
+            head = head:gsub('{{ .' .. k .. ' }}', v)
         end
         local html = head ..ingest(partials_html .. '/header.html')
         html = html .. '<article id="' .. body_tag .. '">'
