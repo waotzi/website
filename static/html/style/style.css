@@ -3,13 +3,19 @@
   src: url(/static/FSEX300.ttf);
 }
 
+@font-face {
+  font-family: canada1500;
+  src: url(/static/canada1500.otf);
+}
+
+
 ::-moz-focus-inner {
 	border: 0;
 }
 
 
 body {
-  font-family: fsex300;
+  font-family: canada1500;
   font-size: large;
   line-height: 1.5em;
   letter-spacing: 0.1em;   
@@ -18,6 +24,7 @@ body {
   background-color: #270729;
   color: #dfffff;
 }
+
 
 
 article {
@@ -62,6 +69,7 @@ a {
 a:hover { color: #4d4 }
 
 h1 {
+  font-family: fsex300;
   text-align: center;
   font-size: 1.6em;
 }

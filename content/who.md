@@ -7,10 +7,10 @@ image: waotzi.jpg
 
 # wo φ zu
 
-I am just another man, with a simple dream of a simple life.
+Howdy, how are you doing? I am just another human being on earth. Trying to understand things through the passage of time.
 
-I do not wish you harm, I only wish you to be free and to live in harmony.
+Sometimes I create stuff or share my thoughts. Feel free to explore this space. Mabye you will find something that interests you or inspires you.
 
-We all just ponder in this world, trying to figure things out. Sometimes leaving the world worse than we were born in. Sometimes improving it bit by bit.
+I wish you the very best on your process, on your journey through life!
 
-I have nothing to offer to you. You should look for what you seek.
+Take care
