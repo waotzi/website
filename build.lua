@@ -64,7 +64,8 @@ local default_meta <const>  = {
 
 local function getFiles(dir)
     local t = {}
-    local p = io.popen('find "' .. dir ..'" -type f')  --Open directory look for files, save data in p. By giving '-type f' as parameter, it returns all files.     
+    --Open directory look for files, save data in p. By giving '-type f' as parameter, it returns all files.  
+    local p = io.popen("find '" .. dir .."' -type f | sort -n")     
     for file in p:lines() do                         --Loop through all files
         table.insert(t, file)       
     end
@@ -185,7 +186,6 @@ local function build_md()
     for i = #posts, 1, -1 do
         post_path = posts[i]
         file_content = ingest(post_path)
-
         local split_content = split(file_content, '---')
         local md_path = get_file_path(split(post_path, '/'), 2, 1):sub(2)
         local post_file = pub_md .. '/' .. md_path
