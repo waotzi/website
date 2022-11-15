@@ -174,8 +174,7 @@ local function build_md()
     os.execute('cp -r ' .. content_folder .. '/* ' .. pub_md)
 
     -- get new index file
-    local index_file = pub_md .. '/index.md'
-    exgest(index_file, '## Posts')
+    local blog_file = pub_md .. '/blog.md'
 
     -- copy rss file
     local xml_gmi, xml_gmi_meta = update_rss(xml_gmi_file, gmi_main_url)
@@ -208,14 +207,20 @@ local function build_md()
         xml_html = add_xml_entry(xml_html, xml_html_meta, meta, xml_md_path_html, summary, false)
         -- add date to posts
         exgest(post_file, meta.title  .. ' was published on ' .. date)
+        exgest(post_file, '\n[↩ return to blog](/blog.md)')
 
+        if meta.image then
+            local post_img = '[![' .. meta.image .. '](/static/posts/' .. meta.image .. ')](' .. md_path .. ')\n'
+            exgest(blog_file, post_img)
+        end
         -- add post links to index file
         local post_link = '### [' .. meta.title .. '](' .. md_path .. ')\n'
-        exgest(index_file, post_link)
+        exgest(blog_file, post_link)
         local post_date = "**Published:** " .. date .. "\n"
-        exgest(index_file, post_date)
+        exgest(blog_file, post_date)
         local post_tags ="**Tags:** " .. meta.tags .. "\n"
-        exgest(index_file, post_tags)
+        exgest(blog_file, post_tags)
+
     end
     xml_gmi = xml_gmi .. '</feed>'
     xml_html = xml_html .. '</feed>'

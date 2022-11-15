@@ -122,3 +122,15 @@ pre code {
 #donate img {
   width: 128px;
 }
+
+#blog p {
+  margin: auto;
+}
+
+#blog h3 {
+  text-align: center;
+}
+
+#blog img {
+  padding-top: 2rem;
+}

@@ -21,4 +21,4 @@ here
 [Http Version](https://waotzi.org)
 
 
-
+## [Visit my blog here](blog.md)
