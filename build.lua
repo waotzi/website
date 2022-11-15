@@ -210,8 +210,12 @@ local function build_md()
         exgest(post_file, meta.title  .. ' was published on ' .. date)
 
         -- add post links to index file
-        local post_link = '[' .. date .. ' - ' .. meta.title .. '](' .. md_path .. ')\n'
+        local post_link = '### [' .. meta.title .. '](' .. md_path .. ')\n'
         exgest(index_file, post_link)
+        local post_date = "**Published:** " .. date .. "\n"
+        exgest(index_file, post_date)
+        local post_tags ="**Tags:** " .. meta.tags .. "\n"
+        exgest(index_file, post_tags)
     end
     xml_gmi = xml_gmi .. '</feed>'
     xml_html = xml_html .. '</feed>'
