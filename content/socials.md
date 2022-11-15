@@ -9,8 +9,6 @@ title: Socials
 
 [Telegram](https://t.me/waotzi)
 
-[Matrix](https://matrix.to/#/@waotzi:minds.com)
-
 
 ## Social Media
 [Minds](https://www.minds.com/waotzi/)
