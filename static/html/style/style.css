@@ -123,14 +123,14 @@ pre code {
   width: 128px;
 }
 
-#blog p {
+#posts p {
   margin: auto;
 }
 
-#blog h3 {
+#posts h3 {
   text-align: center;
 }
 
-#blog img {
-  padding-top: 2rem;
+#posts img {
+  padding-top: 5rem;
 }

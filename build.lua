@@ -174,7 +174,7 @@ local function build_md()
     os.execute('cp -r ' .. content_folder .. '/* ' .. pub_md)
 
     -- get new index file
-    local blog_file = pub_md .. '/blog.md'
+    local blog_file = pub_md .. '/posts.md'
 
     -- copy rss file
     local xml_gmi, xml_gmi_meta = update_rss(xml_gmi_file, gmi_main_url)
@@ -188,11 +188,10 @@ local function build_md()
         local split_content = split(file_content, '---')
         local md_path = get_file_path(split(post_path, '/'), 2, 1):sub(2)
         local post_file = pub_md .. '/' .. md_path
-
-        -- make yaml content
+        -- make yaml content   
         local yaml = split_content[1]
         local meta = lyaml.load(yaml)
-        local date = meta.date:gsub('/', '-')
+        local date = split(meta.date, '/')
 
         local xml_md_path_gmi = md_path:gsub('.md', '.gmi')
         local xml_md_path_html = md_path:gsub('.md', '.html')
@@ -206,8 +205,10 @@ local function build_md()
         xml_gmi = add_xml_entry(xml_gmi, xml_gmi_meta, meta, xml_md_path_gmi, summary, true)
         xml_html = add_xml_entry(xml_html, xml_html_meta, meta, xml_md_path_html, summary, false)
         -- add date to posts
-        exgest(post_file, meta.title  .. ' was published on ' .. date)
-        exgest(post_file, '\n[↩ return to blog](/blog.md)')
+        local fmt_date = os.date('%b %d, %Y', os.time({year = tonumber(date[1]), month = tonumber(date[2]), day = tonumber(date[3])}))
+        print(fmt_date)
+        exgest(post_file, meta.title  .. ' was published on ' .. fmt_date)
+        exgest(post_file, '\n[↩ return to posts](/posts.md)')
 
         if meta.image then
             local post_img = '[![' .. meta.image .. '](/static/posts/' .. meta.image .. ')](' .. md_path .. ')\n'
@@ -216,10 +217,14 @@ local function build_md()
         -- add post links to index file
         local post_link = '### [' .. meta.title .. '](' .. md_path .. ')\n'
         exgest(blog_file, post_link)
-        local post_date = "**Published:** " .. date .. "\n"
+
+
+        local post_date = "**Published:** " .. fmt_date .. "\n"
         exgest(blog_file, post_date)
         local post_tags ="**Tags:** " .. meta.tags .. "\n"
         exgest(blog_file, post_tags)
+        local post_desc ="**Synopsis:** " .. meta.description .. "\n"
+        exgest(blog_file, post_desc)
 
     end
     xml_gmi = xml_gmi .. '</feed>'
