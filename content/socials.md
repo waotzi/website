@@ -11,11 +11,10 @@ title: Socials
 
 
 ## Social Media
-[Minds](https://www.minds.com/waotzi/)
+[Twitter](https://twitter.com/waotzi)
 
 [Fediverse](https://gleasonator.com/@waotzi)
 
-[Twitter](https://twitter.com/waotzi)
 
 
 ## Projects Hub
@@ -23,7 +22,7 @@ title: Socials
 
 [Sourcehut](https://sr.ht/~waotzi/)
 
-[Codeberg](https://codeberg.org/waotzi)
+[GitHub](https://github.com/waotzi)
 
 
 ## Donate
