@@ -13,7 +13,7 @@ title: Socials
 ## Social Media
 [Twitter](https://twitter.com/waotzi)
 
-[Fediverse](https://gleasonator.com/@waotzi)
+[Fediverse](https://soapbox.stereophonic.space/@waotzi)
 
 
 
