@@ -12,9 +12,9 @@ image: projects/ukuvota.png
 
 Cooperative score voting web application.
 
-[Web app](https://ukuvota.world/)
+[Web app](https://dev.ukuvota.world/)
 
-[Source code](https://codeberg.org/Ukuvota/Ukuvota)
+[Source code](https://github.com/waotzi/ukuvota)
 
 <br/>
 
@@ -28,6 +28,6 @@ A Retro-style 2D Action Platformer
 
 [Play here!](https://nonaco.itch.io/geocats)
 
-[Source code](https://gitlab.com/nonaco/geocats)
+[Source code](https://github.com/waotzi/geocats)
 
 
