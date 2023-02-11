@@ -14,11 +14,5 @@ question and wonder
 
 [donate - Support me](donate.md)
 
-here
 
-[Gemlog Version](gemini://waotzi.org)
-
-[Http Version](https://waotzi.org)
-
-
-## [Explore my mind here](posts.md)
+## [Explore my posts here](posts.md)
