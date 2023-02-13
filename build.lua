@@ -182,6 +182,7 @@ local function build_md()
 
     -- find posts in content folder and add the links to public/md/index.md
     local posts = getFiles(posts_folder)
+    local post_file, summary_file
     for i = #posts, 1, -1 do
         post_path = posts[i]
         file_content = ingest(post_path)
@@ -192,41 +193,34 @@ local function build_md()
         local yaml = split_content[1]
         local meta = lyaml.load(yaml)
         local date = split(meta.date, '/')
-
+        local fmt_date = os.date('%b %d, %Y', os.time({year = tonumber(date[1]), month = tonumber(date[2]), day = tonumber(date[3])}))
+    
         local xml_md_path_gmi = md_path:gsub('.md', '.gmi')
         local xml_md_path_html = md_path:gsub('.md', '.html')
         local summary_file = post_path .. '.tmp'
         os.execute('touch ' .. summary_file)
-        os.execute('sed "1{/^---$/!q;};1,/^---$/d" ' .. post_path .. ' > ' .. summary_file)
-        summary = os_capture('md2html ' .. summary_file)
+        os.execute(string.format("sed '1{/^---$/!q;} ; 1,/^---$/d' %s > %s", post_path, summary_file))
+        summary = os_capture(string.format("md2html %s", summary_file))
         os.execute('rm ' .. summary_file)
-
-
+    
         xml_gmi = add_xml_entry(xml_gmi, xml_gmi_meta, meta, xml_md_path_gmi, summary, true)
         xml_html = add_xml_entry(xml_html, xml_html_meta, meta, xml_md_path_html, summary, false)
-        -- add date to posts
-        local fmt_date = os.date('%b %d, %Y', os.time({year = tonumber(date[1]), month = tonumber(date[2]), day = tonumber(date[3])}))
-        print(fmt_date)
-        exgest(post_file, meta.title  .. ' was published on ' .. fmt_date)
-        exgest(post_file, '\n[↩ return to posts](/posts.md)')
-
+        exgest(post_file, string.format("%s was published on %s\n[↩ return to posts](/posts.md)", meta.title, fmt_date))
+    
         if meta.image then
-            local post_img = '[![' .. meta.image .. '](/static/posts/' .. meta.image .. ')](' .. md_path .. ')\n'
+            local post_img = string.format("[![%s](/static/posts/%s)](%s)\n", meta.image, meta.image, md_path)
             exgest(blog_file, post_img)
         end
         -- add post links to index file
-        local post_link = '### [' .. meta.title .. '](' .. md_path .. ')\n'
+        local post_link = string.format("### [%s](%s)\n", meta.title, md_path)
         exgest(blog_file, post_link)
-
-
-        local post_date = "**Published:** " .. fmt_date .. "\n"
-        exgest(blog_file, post_date)
-        local post_tags ="**Tags:** " .. meta.tags .. "\n"
-        exgest(blog_file, post_tags)
-        local post_desc ="**Synopsis:** " .. meta.description .. "\n"
-        exgest(blog_file, post_desc)
-
+        exgest(blog_file, string.format("**Published:** %s\n", fmt_date))
+        exgest(blog_file, string.format("**Tags:** %s\n", meta.tags))
+        exgest(blog_file, string.format("**Synopsis:** %s\n", meta.description))
     end
+    
+    
+    
     xml_gmi = xml_gmi .. '</feed>'
     xml_html = xml_html .. '</feed>'
     

@@ -2,5 +2,4 @@
 
 ./build.lua
 cd public/html
-ran
-
+ran --port 3000

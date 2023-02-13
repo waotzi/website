@@ -10,7 +10,7 @@ image: projects/ukuvota.png
 
 ## Ukuvota
 
-Cooperative score voting web application.
+Empowering Collaborative Decision-Making
 
 [Web app](https://dev.ukuvota.world/)
 
