@@ -12,7 +12,7 @@ image: projects/ukuvota.png
 
 Empowering Collaborative Decision-Making
 
-[Web app](https://dev.ukuvota.world/)
+[Web app](https://ukuvota.world/)
 
 [Source code](https://github.com/waotzi/ukuvota)
 
