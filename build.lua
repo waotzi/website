@@ -3,30 +3,30 @@
 local lyaml = require 'lyaml'
 
 -- folder paths
-local content_folder <const>  = 'content'
-local posts_folder <const>  = 'content/posts'
+local content_folder = 'content'
+local posts_folder = 'content/posts'
 
-local pub_folder <const>  = 'public'
-local pub_md <const>  = pub_folder .. '/md'
-local pub_gmi <const>  = pub_folder .. '/gmi'
-local pub_html <const>  = pub_folder .. '/html'
+local pub_folder = 'public'
+local pub_md = pub_folder .. '/md'
+local pub_gmi = pub_folder .. '/gmi'
+local pub_html = pub_folder .. '/html'
 
-local static_folder <const>  = 'static'
-local static_any <const>  = static_folder .. '/any'
-local static_gmi <const>  = static_folder .. '/gmi'
-local static_html <const>  = static_folder .. '/html'
+local static_folder = 'static'
+local static_any = static_folder .. '/any'
+local static_gmi = static_folder .. '/gmi'
+local static_html = static_folder .. '/html'
 
-local partials_folder <const>  = 'partials'
-local partials_any <const>  = partials_folder .. '/any'
-local partials_gmi <const>  = partials_folder .. '/gmi'
-local partials_html <const>  = partials_folder .. '/html'
+local partials_folder = 'partials'
+local partials_any = partials_folder .. '/any'
+local partials_gmi = partials_folder .. '/gmi'
+local partials_html = partials_folder .. '/html'
 
-local gmi_main_url <const> = 'gemini://waotzi.org'
+local gmi_main_url = 'gemini://waotzi.org'
 
-local main_url <const> = 'https://waotzi.org'
+local main_url = 'https://waotzi.org'
 
-local xml_gmi_file <const> = 'atom_gmi.xml'
-local xml_html_file <const> = 'atom_html.xml'
+local xml_gmi_file = 'atom_gmi.xml'
+local xml_html_file = 'atom_html.xml'
 
 
 local function string_insert(str1, str2, pos)
@@ -46,7 +46,7 @@ local function shallow_copy(t)
 end
 
 
-local default_meta <const>  = {
+local default_meta = {
     id = 'waotzi',
     url = main_url,
     toptitle = "Waotzi's Path",
