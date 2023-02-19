@@ -1,0 +1,11 @@
+#! /bin/bash
+
+function fn_main() 
+{
+    [ ! -f "$1" ] && echo "md2html txtfile" && exit 1
+
+    Markdown.pl $1
+
+}
+
+fn_main $@

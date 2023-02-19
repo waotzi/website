@@ -263,7 +263,7 @@ local function build_gmi()
             end
             local file_name = get_file_path(split(file_path, '/'),  3, 1):gsub('.md', '.gmi')
 
-            os.execute('md2gemini -m -w -f -s ' .. file_path .. ' -d ' .. pub_gmi .. p)
+            os.execute('./bin/md2gemini -m -w -f -s ' .. file_path .. ' -d ' .. pub_gmi .. p)
             if file_name ~= '/index.gmi' then
                 exgest(pub_gmi .. file_name, '\n\n=> ' .. gmi_main_url .. ' Go home')
             end
@@ -334,7 +334,7 @@ local function build_html()
             end
             
             -- convert md to html
-            html = html .. os_capture('md2html ' .. md_file)
+            html = html .. os_capture('./bin/md2html ' .. md_file)
             html = html .. '</article>\n'
 
             os.execute('rm ' .. md_file)
