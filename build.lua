@@ -49,8 +49,8 @@ end
 local default_meta <const>  = {
     id = 'waotzi',
     url = main_url,
-    toptitle = 'を  wao ☬ tzi  づ',
-    title = 'を  wao ☬ tzi  づ',
+    toptitle = "Waotzi's Path",
+    title = "Waotzi's Path",
     image = main_url .. '/static/waotzi.jpg',
     author = 'waotzi',
     twitter = '@waotzi',
@@ -192,9 +192,7 @@ local function build_md()
         local post_file = pub_md .. '/' .. md_path
         -- make yaml content   
         local yaml = split_content[1]
-        print("Parsing YAML for file:", post_path)
         local meta = lyaml.load(yaml)
-        print("Parsed metadata:", meta)
         local date = split(meta.date, '/')
         local fmt_date = os.date('%b %d, %Y', os.time({year = tonumber(date[1]), month = tonumber(date[2]), day = tonumber(date[3])}))
     

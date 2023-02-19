@@ -1,5 +1,5 @@
 ---
-title: Waotzi's Solutions
+title: Solutions
 description: Join me on a journey through life and technology as I share my software solutions and inspirations with you.
 ---
 
