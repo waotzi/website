@@ -1,9 +1,8 @@
 ---
-title: Solutions
 description: Join me on a journey through life and technology as I share my software solutions and inspirations with you.
 ---
 
-# Waotzi's Solutions
+# Waotzi's Path
 
 _"Wao Tzi, Wao Tzu, Wo Zu, Wozu? For what reason?"_
 
