@@ -183,6 +183,7 @@ local function build_md()
     -- find posts in content folder and add the links to public/md/index.md
     local posts = getFiles(posts_folder)
     local post_file, summary_file
+
     for i = #posts, 1, -1 do
         post_path = posts[i]
         file_content = ingest(post_path)
@@ -191,7 +192,9 @@ local function build_md()
         local post_file = pub_md .. '/' .. md_path
         -- make yaml content   
         local yaml = split_content[1]
+        print("Parsing YAML for file:", post_path)
         local meta = lyaml.load(yaml)
+        print("Parsed metadata:", meta)
         local date = split(meta.date, '/')
         local fmt_date = os.date('%b %d, %Y', os.time({year = tonumber(date[1]), month = tonumber(date[2]), day = tonumber(date[3])}))
     

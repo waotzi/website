@@ -1,17 +1,24 @@
-wao tzi, wao tzu, wo zu, wozu? for what reason?
+---
+title: Waotzi's Magical Solutions
+description: Join me on a magical journey through life as I share my software solutions and inspirations with you.
+---
 
+# Waotzi's Magical Solutions
 
-question and wonder
+_"Wao Tzi, Wao Tzu, Wo Zu, Wozu? For what reason?"_
 
-[about me - Who am I?](who.md)
+Welcome to my magical realm! Follow me on my journey through life and discover the secrets of my software solutions.
 
-[socials - Where can I find you?](socials.md)
+* [Who am I?](who.md) - Learn more about the magician behind the code.
 
-[profolio - What do you do?](profolio.md)
+- [Socials](socials.md) - Where can you find me on social media? Stay updated on my latest musings and magic.
 
-[flowers - What inspires you?](flowers.md)
+- [Portfolio](portfolio.md) - What can I do? Check out my enchanting software solutions and projects.
 
-[donate - Support me](donate.md)
+* [What inspires me?](flowers.md) - Find out what motivates my magic.
 
+* [Support me.](donate.md) - Help me continue to bring magic to the world of software development.
 
-## [Explore my posts here](posts.md)
+## Explore my Posts
+
+- [Read my posts here.](posts.md) - Discover my magical journey through life.
