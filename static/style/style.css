@@ -20,7 +20,7 @@ body {
   line-height: 1.5em;
   letter-spacing: 0.1em;   
   margin: auto;
-  max-width: 700px;
+  max-width: 800px;
   background-color: #270729;
   color: #dfffff;
 }
@@ -133,4 +133,27 @@ pre code {
 
 #posts img {
   padding-top: 5rem;
+}
+
+.projects {
+  display: flex;
+  text-align: left;
+  flex-wrap: wrap;
+  margin: auto;
+}
+.project {
+  width: 300px;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 12px;
+}
+.active {
+  color: black;
+  background-color: #2AAA8A;
+}
+.archived {
+  background-color: gray;
+}
+.green {
+  color: green;
 }

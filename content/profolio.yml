@@ -1,0 +1,24 @@
+- name: Ukuvota
+  category: Productivity
+  status: Active
+  image: /projects/ukuvota.png
+  description: Empowering Collaborative Decision-Making
+  links:
+    - name: Web app
+      url: https://ukuvota.world/
+    - name: Source code
+      url: https://github.com/waotzi/ukuvota
+      
+- name: Geocats
+  category: Games
+  status: Archived
+  eol: 2022
+  image: /projects/geocats.png
+  description: A Retro-style 2D Action Platformer
+  links:
+    - name: Website
+      url: https://geocats.netlify.app/
+    - name: Play here!
+      url: https://nonaco.itch.io/geocats
+    - name: Source code
+      url: https://github.com/waotzi/geocats

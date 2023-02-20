@@ -9,6 +9,7 @@ local base_url_gmi = 'gemini://waotzi.org'
 
 local content_dir = root_dir .. '/content'
 local posts_dir = root_dir .. '/content/posts'
+local profolio_dir = root_dir .. '/content/profolio'
 local pub_dir = root_dir .. '/public'
 local static_dir = root_dir .. '/static'
 local partials_dir = root_dir .. '/partials'
@@ -203,7 +204,7 @@ local function build_md()
         xml_gmi = add_xml_entry(xml_gmi, xml_meta_gmi, meta, md_path, summary, true)
         xml_html = add_xml_entry(xml_html, xml_meta_html, meta, md_path, summary, false)
         print(meta.title, fmt_date, post_file)
-        exgest(post_file, string.format("%s was published on %s\n[↩ return to posts](/posts.md)", meta.title, fmt_date))
+        exgest(post_file, string.format("%s was published on %s\n\n[↩ return to posts](/posts.md)", meta.title, fmt_date))
     
         if meta.image then
             local post_img = string.format("[![%s](/posts/%s)](%s)\n", meta.image, meta.image, md_path)
@@ -266,11 +267,9 @@ local function build_html()
     local pub_md = pub_dir .. '/md'
 
     reset_dir(pub_html)
-
     -- copy static files
     copy_static_files(static_dir, pub_html)
-
-    os.execute('cp ' .. pub_dir .. '/' .. xml_file .. ' ' .. pub_html .. '/' .. 'atom.xml')
+    os.rename(pub_dir .. '/' .. xml_file, pub_html .. '/atom.xml')
 
     -- convert md to html
     local files = getFiles(pub_md)
@@ -281,16 +280,12 @@ local function build_html()
             local has_yaml = ingest(file_path):sub(1, 3) == '---'
             local rtn_meta = shallow_copy(default_meta)
             rtn_meta['url'] = rtn_meta['url'] .. relative_path
-
+            local external_data = nil
             local body_tag = ""
             if has_yaml then
                 file_content = ingest(file_path)
-
-                local split_content = split(file_content, '---')
-
                 -- make yaml content
-                local yaml = split_content[1]
-                local meta = lyaml.load(yaml)
+                local meta = lyaml.load(split(file_content, '---')[1])
                 for k, v in pairs(meta) do
                     if k == 'title' then
                         body_tag = v:lower():gsub(' ', '_')
@@ -301,13 +296,16 @@ local function build_html()
                     else
                         rtn_meta[k] = v
                     end
+                    if k == "data" then
+                        external_data = v
+                    end
                 end
             end
-            local head = ingest(partials_dir .. '/head.html')
+            local html = ingest(partials_dir .. '/head.html')
             for k, v in pairs(rtn_meta) do
-                head = head:gsub('{{ .' .. k .. ' }}', v)
+                html = html:gsub('{{ .' .. k .. ' }}', v)
             end
-            local html = head ..ingest(partials_dir .. '/header.html')
+            html = html .. ingest(partials_dir .. '/header.html')
             html = html .. '<article id="' .. body_tag .. '">\n'
             os.execute('cp ' .. file_path .. ' ' .. file_path .. '.tmp')
             md_file = file_path .. '.tmp'
@@ -319,6 +317,34 @@ local function build_html()
             
             -- convert md to html
             html = html .. os_capture('./bin/md2html ' .. md_file)
+            if external_data then
+                print(content_dir .. '/' .. external_data)
+                local file = io.open(content_dir .. '/' .. external_data, "r")
+                local content = file:read("*all")
+                file:close()
+                local projects = lyaml.load(content)
+                html = html .. '<div class="projects">'
+                for _, project in ipairs(projects) do
+                    html = html .. '<div class="project '  .. string.lower(project.status) .. '">\n'
+                    html = html .. '<img src="' .. project.image .. '" alt="' .. project.name .. '">\n'
+                    html = html .. '<h2>' .. project.name .. '</h2>\n'
+                    html = html .. '<p>' .. project.description .. '</p>\n'
+                    html = html .. '<ul class="links">\n'
+                    for _, link in ipairs(project.links) do
+                        html = html .. '<li><a href="' .. link.url .. '">' .. link.name .. '</a></li>\n'
+                    end
+                    html = html .. '</ul>\n'
+                    html = html .. '<p>Category: <b>' .. project.category .. '</b></p>\n'
+                    local color = 'black'
+                    if project.status == 'Active' then
+                            color = 'green'
+                    end
+                    html = html .. '<p>Status: <b style="color: ' .. color .. '">' .. project.status .. ' ' .. (project.eol or '') .. '</b></p>\n'
+                    html = html .. '</div>\n'
+                end
+                html = html .. '</div>\n'
+
+            end
             html = html .. '</article>\n'
 
             os.execute('rm ' .. md_file)
