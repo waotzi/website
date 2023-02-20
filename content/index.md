@@ -1,18 +1,18 @@
 ---
-description: Join me on a journey through life and technology as I share my software solutions and inspirations with you.
+description: Welcome to my realm of technology and creativity. Follow me on my journey through life where I blend technology and creativity to bring my visiions to life.
 ---
 
 # Waotzi's Path
 
 _"Wao Tzi, Wao Tzu, Wo Zu, Wozu? For what reason?"_
 
-Welcome to my realm of technology and creativity. Follow me on my journey through life and discover the wonders of software solutions.
+Welcome to my realm of technology and creativity. Follow me on my journey through life where I blend technology and creativity to bring my visiions to life.
 
 * [Who am I?](who.md) - Learn more about the person behind the code.
 
 - [Socials](socials.md) - Where can you find me on social media? Stay updated on my latest musings and updates.
 
-- [Portfolio](portfolio.md) - What can I do? Check out my software solutions and projects.
+- [Portfolio](portfolio.md) - What can I do? Check out my creative projects and creations.
 
 * [What inspires me?](flowers.md) - Find out what motivates my creativity and passion.
 
