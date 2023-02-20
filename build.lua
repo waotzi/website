@@ -339,7 +339,7 @@ local function build_html()
                     if project.status == 'Active' then
                             color = 'green'
                     end
-                    html = html .. '<p>Status: <b style="color: ' .. color .. '">' .. project.status .. ' ' .. (project.eol or '') .. '</b></p>\n'
+                    html = html .. '<p>Status: <b class="text-' .. string.lower(project.status) .. '">' .. project.status .. ' ' .. (project.eol or '') .. '</b></p>\n'
                     html = html .. '</div>\n'
                 end
                 html = html .. '</div>\n'
