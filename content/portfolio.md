@@ -7,7 +7,7 @@ image: projects/ukuvota.png
 # Portfolio
 
 
-[![Ukuvota](/static/projects/ukuvota.png)](https://ukuvota.world/)
+[![Ukuvota](/projects/ukuvota.png)](https://ukuvota.world/)
 
 ## Ukuvota
 
@@ -19,7 +19,7 @@ Empowering Collaborative Decision-Making
 
 <br/>
 
-[![Geocats](/static/projects/geocats.png)](https://geocats.netlify.app/)
+[![Geocats](/projects/geocats.png)](https://geocats.netlify.app/)
 
 ## Geocats
 

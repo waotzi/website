@@ -3,30 +3,18 @@
 local lyaml = require 'lyaml'
 
 -- folder paths
-local content_folder = 'content'
-local posts_folder = 'content/posts'
+local root_dir = '.'
+local base_url = 'https://waotzi.org'
+local base_url_gmi = 'gemini://waotzi.org'
 
-local pub_folder = 'public'
-local pub_md = pub_folder .. '/md'
-local pub_gmi = pub_folder .. '/gmi'
-local pub_html = pub_folder .. '/html'
+local content_dir = root_dir .. '/content'
+local posts_dir = root_dir .. '/content/posts'
+local pub_dir = root_dir .. '/public'
+local static_dir = root_dir .. '/static'
+local partials_dir = root_dir .. '/partials'
 
-local static_folder = 'static'
-local static_any = static_folder .. '/any'
-local static_gmi = static_folder .. '/gmi'
-local static_html = static_folder .. '/html'
-
-local partials_folder = 'partials'
-local partials_any = partials_folder .. '/any'
-local partials_gmi = partials_folder .. '/gmi'
-local partials_html = partials_folder .. '/html'
-
-local gmi_main_url = 'gemini://waotzi.org'
-
-local main_url = 'https://waotzi.org'
-
-local xml_gmi_file = 'atom_gmi.xml'
-local xml_html_file = 'atom_html.xml'
+local xml_file = 'atom.xml'
+local xml_file_gmi = 'atom_gmi.xml'
 
 
 local function string_insert(str1, str2, pos)
@@ -48,10 +36,10 @@ end
 
 local default_meta = {
     id = 'waotzi',
-    url = main_url,
+    url = base_url,
     toptitle = "Waotzi's Path",
     title = "Waotzi's Path",
-    image = main_url .. '/static/waotzi.jpg',
+    image = base_url .. '/waotzi.jpg',
     author = 'waotzi',
     twitter = '@waotzi',
     description = 'Personal cyberspace of waotzi',
@@ -126,69 +114,79 @@ local function os_capture(cmd, raw)
 end
 
 local function update_rss(file_name, main_url)
-    os.execute('touch '.. pub_md .. '/' .. file_name)
+    os.execute('touch '.. pub_dir .. '/' .. file_name)
     local rss_meta = shallow_copy(default_meta)
-    local xml_data = ingest(partials_any .. '/atom.xml')
+    local xml_data = ingest(partials_dir .. '/atom.xml')
     for k, v in pairs(rss_meta) do
         if k == 'url' then
-            v = main_url
+            v = base_url
         end
         xml_data = xml_data:gsub('{{ .' .. k .. ' }}', v)
     end
     return xml_data, rss_meta
 end
 
-local function add_xml_entry(xml_data, rtn_meta, meta, file_url, summary, gemini)
-    for k, v in pairs(meta) do
-        rtn_meta[k] = v
-    end
-    local date = split(rtn_meta['date'], '/')
-    date = os.date('%Y-%m-%dT%H:%M:%S', os.time({year = date[1], month = date[2], day = date[3], hour})) .. 'Z'
-
-    xml_data = xml_data .. '<entry>\n'
-    xml_data = xml_data .. '<title>' .. rtn_meta['title'] .. '</title>\n'
-	xml_data = xml_data .. '<link href="' .. file_url .. '"/>\n'
-	xml_data = xml_data .. '<id>' .. file_url .. '</id>\n'
-	xml_data = xml_data .. '<updated>' .. date.. '</updated>\n'
-
-    if gemini then
-        xml_data = xml_data .. '<content src="' .. file_url .. '" type="text/gemini"></content>\n'
+local function add_xml_entry(xml_data, xml_meta, meta, xml_path, summary, is_gemini)
+    local file_url = xml_path:gsub('.md', is_gemini and '.gmi' or '.html')
+    local date = split(meta.date, '/')
+    date = os.date('%Y-%m-%dT%H:%M:%S', os.time({year = date[1], month = date[2], day = date[3], hour = 0})) .. 'Z'
+    local content_tag = ""
+    if is_gemini then
+        content_tag = string.format("<content src=\"%s\" type=\"text/gemini\"></content>", file_url)
     else 
-        xml_data = xml_data .. '<summary><![CDATA[' .. summary .. ']]></summary>\n'
+        content_tag = string.format("<summary><![CDATA[%s]]></summary>", summary)
     end
-    xml_data = xml_data .. '</entry>\n'
+    local entry_xml = string.format([[
+        <entry>
+            <title>%s</title>
+            <link href="%s"/>
+            <id>%s</id>
+            <updated>%s</updated>
+            %s
+        </entry>
+    ]], meta['title'], file_url, file_url, date, content_tag)
+
+    xml_data = xml_data .. entry_xml
     return xml_data
+end
+
+
+local function reset_dir(dir)
+    -- remove last public
+    if isDir(dir) then
+        os.execute('rm -r ' .. dir)
+    end
+
+    -- make public folder
+    os.execute('mkdir -p ' .. dir)
+
 end
 
 -- process the markdown files for further processing
 local function build_md()
-    -- remove last public/md
-    if isDir(pub_md) then
-        os.execute('rm -r ' .. pub_md)
-    end
-
-    -- make public/md folder
-    os.execute('mkdir -p ' .. pub_md)
+    local pub_md = pub_dir .. '/md'
+    reset_dir(pub_md)
 
     -- copy content to public/md
-    os.execute('cp -r ' .. content_folder .. '/* ' .. pub_md)
+    os.execute('cp -r ' .. content_dir .. '/* ' .. pub_md)
 
     -- get new index file
     local blog_file = pub_md .. '/posts.md'
 
     -- copy rss file
-    local xml_gmi, xml_gmi_meta = update_rss(xml_gmi_file, gmi_main_url)
-    local xml_html, xml_html_meta = update_rss(xml_html_file, main_url) 
+    local xml_html, xml_meta_html = update_rss(xml_file, main_url) 
+    local xml_gmi, xml_meta_gmi = update_rss(xml_file_gmi, main_url_gmi)
 
     -- find posts in content folder and add the links to public/md/index.md
-    local posts = getFiles(posts_folder)
+    local posts = getFiles(posts_dir)
     local post_file, summary_file
 
     for i = #posts, 1, -1 do
         post_path = posts[i]
         file_content = ingest(post_path)
         local split_content = split(file_content, '---')
-        local md_path = get_file_path(split(post_path, '/'), 2, 1):sub(2)
+        local md_path = post_path:gsub(root_dir .. '/content', "", 1)
+
         local post_file = pub_md .. '/' .. md_path
         -- make yaml content   
         local yaml = split_content[1]
@@ -196,68 +194,59 @@ local function build_md()
         local date = split(meta.date, '/')
         local fmt_date = os.date('%b %d, %Y', os.time({year = tonumber(date[1]), month = tonumber(date[2]), day = tonumber(date[3])}))
     
-        local xml_md_path_gmi = md_path:gsub('.md', '.gmi')
-        local xml_md_path_html = md_path:gsub('.md', '.html')
         local summary_file = post_path .. '.tmp'
         os.execute('touch ' .. summary_file)
         os.execute(string.format("sed '1{/^---$/!q;} ; 1,/^---$/d' %s > %s", post_path, summary_file))
         summary = os_capture(string.format("md2html %s", summary_file))
         os.execute('rm ' .. summary_file)
-    
-        xml_gmi = add_xml_entry(xml_gmi, xml_gmi_meta, meta, xml_md_path_gmi, summary, true)
-        xml_html = add_xml_entry(xml_html, xml_html_meta, meta, xml_md_path_html, summary, false)
+
+        xml_gmi = add_xml_entry(xml_gmi, xml_meta_gmi, meta, md_path, summary, true)
+        xml_html = add_xml_entry(xml_html, xml_meta_html, meta, md_path, summary, false)
+        print(meta.title, fmt_date, post_file)
         exgest(post_file, string.format("%s was published on %s\n[↩ return to posts](/posts.md)", meta.title, fmt_date))
     
         if meta.image then
-            local post_img = string.format("[![%s](/static/posts/%s)](%s)\n", meta.image, meta.image, md_path)
+            local post_img = string.format("[![%s](/posts/%s)](%s)\n", meta.image, meta.image, md_path)
             exgest(blog_file, post_img)
         end
         -- add post links to index file
-        local post_link = string.format("### [%s](%s)\n", meta.title, md_path)
-        exgest(blog_file, post_link)
-        exgest(blog_file, string.format("**Published:** %s\n", fmt_date))
-        exgest(blog_file, string.format("**Tags:** %s\n", meta.tags))
-        exgest(blog_file, string.format("**Synopsis:** %s\n", meta.description))
+        local post_data = string.format("### [%s](%s)\n**Published:** %s\n**Tags:** %s\n**Synopsis:** %s\n", 
+        meta.title, md_path, fmt_date, meta.tags, meta.description)
+        exgest(blog_file, post_data)
     end
     
     
-    
+    xml_html = xml_html .. '</feed>'    
     xml_gmi = xml_gmi .. '</feed>'
-    xml_html = xml_html .. '</feed>'
     
-
-    exgest(pub_md .. '/' .. xml_gmi_file, xml_gmi)
-    exgest(pub_md .. '/' .. xml_html_file, xml_html)
+    exgest(pub_dir .. '/' .. xml_file, xml_html)
+    exgest(pub_dir .. '/' .. xml_file_gmi, xml_gmi)
 end
 
 local function copy_static_files(s_folder, p_folder)
-    -- make static folder in public folder
-    os.execute('mkdir -p ' .. p_folder .. '/static')
-
     -- copy static files
     if isDir(s_folder) then
-        os.execute('cp -r ' .. s_folder .. '/* ' .. p_folder .. '/static')
+        os.execute('cp -r ' .. s_folder .. '/* ' .. p_folder)
     end
     
 end
 
 -- process public_md for public_gmi
 local function build_gmi()
-    -- remove last public/gmi
-    if isDir(pub_gmi) then
-        os.execute('rm -r ' .. pub_gmi)
-    end
+    local pub_gmi = pub_dir .. '/gmi'
+    local pub_md = pub_dir .. '/md'
+    reset_dir(pub_gmi)
 
     -- copy static files
-    copy_static_files(static_any, pub_gmi)
-    copy_static_files(static_gmi, pub_gmi)
-    os.execute('mv ' .. pub_md .. '/' .. xml_gmi_file .. ' ' .. pub_gmi .. '/' .. 'atom.xml')
+    copy_static_files(static_dir, pub_dir)
+    os.execute('mv ' .. pub_dir .. '/' .. xml_file_gmi .. ' ' .. pub_gmi .. '/' .. 'atom.xml')
 
     -- convert md to gmi
     local files = getFiles(pub_md)
     for i, file_path in ipairs(files) do
         if file_path:find('.md', file_path:len() - 3) then
             p = get_file_path(split(file_path, '/'),  3, 0)
+
             if not isDir(pub_gmi .. p) then
                 os.execute('mkdir -p ' .. pub_gmi .. p)
             end
@@ -265,7 +254,7 @@ local function build_gmi()
 
             os.execute('md2gemini -m -w -f -s ' .. file_path .. ' -d ' .. pub_gmi .. p)
             if file_name ~= '/index.gmi' then
-                exgest(pub_gmi .. file_name, '\n\n=> ' .. gmi_main_url .. ' Go home')
+                exgest(pub_gmi .. file_name, '\n\n=> ' .. base_url_gmi .. ' Go home')
             end
         end
     end
@@ -273,30 +262,25 @@ end
 
 
 local function build_html()
-    -- remove last public/html
-    if isDir(pub_html) then
-        os.execute('rm -r ' .. pub_html)
-    end
+    local pub_html = pub_dir .. '/html'
+    local pub_md = pub_dir .. '/md'
+
+    reset_dir(pub_html)
 
     -- copy static files
-    copy_static_files(static_any, pub_html)
-    copy_static_files(static_html, pub_html)
+    copy_static_files(static_dir, pub_html)
 
-    os.execute('mv ' .. pub_md .. '/' .. xml_html_file .. ' ' .. pub_html .. '/' .. 'atom.xml')
+    os.execute('cp ' .. pub_dir .. '/' .. xml_file .. ' ' .. pub_html .. '/' .. 'atom.xml')
 
     -- convert md to html
     local files = getFiles(pub_md)
     for i, file_path in ipairs(files) do
-        if file_path:find('.md', file_path:len() - 3) then
-            local p = get_file_path(split(file_path, '/'),  3, 0)
-
-            if not isDir(pub_html .. p) then
-                os.execute('mkdir -p ' .. pub_html .. p)
-            end
-            local pp = get_file_path(split(file_path, '/'),  3, 1):gsub('.md', '.html')
+        if file_path:find('.md', file_path:len() - 3) then        
+            local new_file_path = file_path:gsub('/md', '/html', 1):gsub('.md', ".html", 1)
+            local relative_path = new_file_path:gsub(pub_html, '', 1)
             local has_yaml = ingest(file_path):sub(1, 3) == '---'
             local rtn_meta = shallow_copy(default_meta)
-            rtn_meta['url'] = rtn_meta['url'] .. pp
+            rtn_meta['url'] = rtn_meta['url'] .. relative_path
 
             local body_tag = ""
             if has_yaml then
@@ -313,17 +297,17 @@ local function build_html()
                         rtn_meta[k] = v
                         rtn_meta.toptitle = rtn_meta.toptitle .. ' - ' .. v
                     elseif k == 'image' then
-                        rtn_meta[k] = main_url .. '/static' .. p .. '/' .. v
+                        rtn_meta[k] = relative_path
                     else
                         rtn_meta[k] = v
                     end
                 end
             end
-            local head = ingest(partials_html .. '/head.html')
+            local head = ingest(partials_dir .. '/head.html')
             for k, v in pairs(rtn_meta) do
                 head = head:gsub('{{ .' .. k .. ' }}', v)
             end
-            local html = head ..ingest(partials_html .. '/header.html')
+            local html = head ..ingest(partials_dir .. '/header.html')
             html = html .. '<article id="' .. body_tag .. '">\n'
             os.execute('cp ' .. file_path .. ' ' .. file_path .. '.tmp')
             md_file = file_path .. '.tmp'
@@ -339,14 +323,16 @@ local function build_html()
 
             os.execute('rm ' .. md_file)
 
-            html = html .. ingest(partials_html .. '/footer.html')
-            exgest(pub_html .. pp, html)
+            html = html .. ingest(partials_dir .. '/footer.html')
+            exgest(new_file_path, html)
         end
     end
 end
 
 
+reset_dir(pub_dir)
+
 -- execute the build process
 build_md()
-build_gmi()
+--build_gmi()
 build_html()

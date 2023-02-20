@@ -4,7 +4,7 @@ image: waotzi.jpg
 description: I enjoy expressing myself through various means, whether it be through art, writing, or other forms of self-expression. On this platform, I aim to share some of my creations and musings with you, hoping to inspire and spark interest in your own journey.
 ---
 
-![waotzi](/static/waotzi.jpg)
+![waotzi](/waotzi.jpg)
 
 # wo φ zu
 
