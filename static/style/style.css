@@ -138,7 +138,9 @@ pre code {
   text-align: left;
   flex-wrap: wrap;
   margin: auto;
+  justify-content: center;
 }
+
 .project {
   width: 300px;
   padding: 1rem;
