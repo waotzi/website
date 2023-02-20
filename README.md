@@ -1,6 +1,5 @@
-# Personal cyberspace and gemlog
+# Personal cyberspace
 
-- [gemini](gemini://wolfi.srht.site)
-- [https](https://wolfi.space)
+- [https](https://waotzi.org)
 
 
