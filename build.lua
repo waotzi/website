@@ -198,7 +198,7 @@ local function build_md()
         local summary_file = post_path .. '.tmp'
         os.execute('touch ' .. summary_file)
         os.execute(string.format("sed '1{/^---$/!q;} ; 1,/^---$/d' %s > %s", post_path, summary_file))
-        summary = os_capture(string.format("md2html %s", summary_file))
+        summary = os_capture(string.format("./bin/md2html %s", summary_file))
         os.execute('rm ' .. summary_file)
 
         xml_gmi = add_xml_entry(xml_gmi, xml_meta_gmi, meta, md_path, summary, true)
