@@ -6,7 +6,7 @@
    id="RSSicon"
    viewBox="0 0 256 256"
    sodipodi:docname="atom.svg"
-   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="6.421875"
-     inkscape:cx="57.148418"
+     inkscape:cx="40.486618"
      inkscape:cy="64"
      inkscape:window-width="1920"
      inkscape:window-height="1000"
@@ -78,7 +78,7 @@
      y="0"
      fill="#CC5D15"
      id="rect19"
-     style="fill:#99dd99;fill-opacity:1" />
+     style="fill:#44dd44;fill-opacity:1" />
   <rect
      width="246"
      height="246"
@@ -88,7 +88,7 @@
      y="5"
      fill="#F49C52"
      id="rect21"
-     style="fill:#99dd99;fill-opacity:1" />
+     style="fill:#44dd44;fill-opacity:1" />
   <circle
      cx="68"
      cy="189"

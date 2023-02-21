@@ -160,3 +160,9 @@ pre code {
 .text-archived {
   color: #FF6666;
 }
+h1 a {
+  color: #4d4;
+}
+h1 a:hover {
+  color: #BA6FCC;
+}

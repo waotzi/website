@@ -4,7 +4,7 @@
    version="1.1"
    id="svg51"
    sodipodi:docname="sourcehut.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -21,16 +21,18 @@
      inkscape:pagecheckerboard="1"
      showgrid="false"
      inkscape:zoom="1.6542969"
-     inkscape:cx="256"
-     inkscape:cy="353.9268"
+     inkscape:cx="229.70484"
+     inkscape:cy="354.22904"
      inkscape:window-width="1920"
-     inkscape:window-height="1012"
+     inkscape:window-height="1000"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="30"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg51" />
+     inkscape:current-layer="svg51"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#505050" />
   <path
      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200z"
      id="path49"
-     style="fill:#99dd99;fill-opacity:1" />
+     style="fill:#44dd44;fill-opacity:1" />
 </svg>
