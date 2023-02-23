@@ -5,7 +5,7 @@ title: Socials
 # Socials
 
 ## Private Messaging
-[Email](mailto:waotzi@pm.me)
+[Email](mailto:hello@waotzi.org)
 
 [Telegram](https://t.me/waotzi)
 
