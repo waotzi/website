@@ -27,6 +27,4 @@ Feel free to contact me, and who knows - maybe we can create an alliance togethe
 
 * [Support me.](donate.md) - Help me continue to create value in the world of technology.
 
-## Explore my Posts
-
 - [Read my posts here.](posts.md) - Discover my thoughts and experiences on life and technology.
