@@ -1,5 +1,5 @@
-# Personal cyberspace
+# My personal website
 
-- [https](https://waotzi.org)
+- [https://waotzi.org](https://waotzi.org)
 
 
