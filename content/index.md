@@ -1,5 +1,5 @@
 ---
-description: Welcome to my realm of technology and creativity. Follow me on my journey through life where I blend technology and creativity to bring my visiions to life.
+description: Welcome to my realm of technology and creativity. Follow me on my journey through life where I blend technology and creativity to bring my visions to life.
 ---
 
 # Waotzi's Path
