@@ -121,6 +121,9 @@ pre code {
   width: 128px;
 }
 
+img {
+  border-radius: 1rem;
+}
 #posts p {
   margin: auto;
 }

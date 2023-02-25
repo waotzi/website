@@ -1,14 +1,23 @@
 ---
-description: Welcome to my realm of technology and creativity. Follow me on my journey through life where I blend technology and creativity to bring my visions to life.
+description: I am a freedom fighter and a software wizard, my goal in life is to find harmony with myself, my surroundings and the universe.
+
 ---
+
+![waotzi](warrior_wizard.jpeg)
 
 # Waotzi's Path
 
-_"Wao Tzi, Wao Tzu, Wo Zu, Wozu? For what reason?"_
+> _"Wao Tzi, Wao Tzu, Wo Zu, Wozu? For what reason?"_, inspired by Lao Zi, Lao Tzu, Lao Tze - my favorite philosopher
 
-Welcome to my realm of technology and creativity. Follow me on my journey through life where I blend technology and creativity to bring my visiions to life.
+Welcome to my site!
 
-* [Who am I?](who.md) - Learn more about the person behind the code.
+My name is Waotzi - well, at least that's my wizard name.
+
+I am a freedom fighter and a software wizard. My goal in life is to find harmony with myself, my surroundings, and the universe.
+
+I wish for humanity to become free from its chains and explore the beauty of life and of the Tao.
+
+Feel free to contact me, and who knows - maybe we can create an alliance together and work towards harmony.
 
 - [Socials](socials.md) - Where can you find me on social media? Stay updated on my latest musings and updates.
 
