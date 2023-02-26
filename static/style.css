@@ -13,6 +13,27 @@
 }
 
 
+nav {
+  font-weight: 100;
+  padding: 1rem;
+}
+nav * {
+  padding: 0 0.6rem;
+}
+nav a { 
+  color: #4d4;
+  text-decoration: none;
+}
+nav a:hover {
+  color: #BA6FCC;
+}
+
+nav h1 {
+  color: white !important;
+}
+
+
+
 body {
   font-family: canada1500;
   font-size: large;
@@ -74,27 +95,12 @@ footer img {
   width: 1rem;
 }
 
-nav {
-  font-weight: 100;
-  padding: 1rem;
-}
 .flex {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
 }
-nav * {
-  padding: 0 0.6rem;
-}
-nav a { 
-  color: #4d4;
-  text-decoration: none;
-}
-nav a:hover {
-  color: #BA6FCC;
-}
-
 
 pre code {
   font-family: fsex300;
