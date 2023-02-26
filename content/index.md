@@ -18,3 +18,5 @@ I am a freedom fighter and a software wizard. My goal in life is to find harmony
 I wish for humanity to become free from its chains and explore the beauty of life and of the Tao.
 
 Feel free to contact me, and who knows - maybe we can create an alliance together and work towards harmony.
+
+Check out my projects on my [portfolio!](/portfolio.html)
