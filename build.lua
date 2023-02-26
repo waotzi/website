@@ -171,7 +171,7 @@ local function build_md()
     os.execute('cp -r ' .. content_dir .. '/* ' .. pub_md)
 
     -- get new index file
-    local blog_file = pub_md .. '/posts.md'
+    local posts_yaml = pub_md .. '/posts.yml'
 
     -- copy rss file
     local xml_html, xml_meta_html = update_rss(xml_file, main_url) 
@@ -202,17 +202,13 @@ local function build_md()
 
         xml_gmi = add_xml_entry(xml_gmi, xml_meta_gmi, meta, md_path, summary, true)
         xml_html = add_xml_entry(xml_html, xml_meta_html, meta, md_path, summary, false)
-        print(meta.title, fmt_date, post_file)
         exgest(post_file, string.format("%s was published on %s\n\n[↩ return to posts](/posts.md)", meta.title, fmt_date))
     
-        if meta.image then
-            local post_img = string.format("[![%s](/posts/%s)](%s)\n", meta.image, meta.image, md_path)
-            exgest(blog_file, post_img)
-        end
-        -- add post links to index file
-        local post_data = string.format("### [%s](%s)\n**Published:** %s\n\n**Tags:** %s\n\n**Synopsis:** %s\n\n", 
-        meta.title, md_path, fmt_date, meta.tags, meta.description)
-        exgest(blog_file, post_data)
+        print(md_path)
+
+        local post_data = string.format("- name: %s\n  category: %s\n  published: %s\n  synopsis: %s\n  image: /posts/%s\n  read_more: %s\n", 
+            meta.title, meta.tags, fmt_date, meta.description, meta.image, md_path:gsub("%.md$", ".html"))
+        exgest(posts_yaml, post_data)
     end
     
     
@@ -318,12 +314,11 @@ local function build_html()
             html = html .. os_capture('./bin/md2html ' .. md_file)
             -- add yml content if there is any
             if yml_data then
-                print(content_dir .. '/' .. yml_data)
-                local file = io.open(content_dir .. '/' .. yml_data, "r")
+                print(pub_md .. '/' .. yml_data)
+                local file = io.open(pub_md .. '/' .. yml_data, "r")
                 local content = file:read("*all")
                 file:close()
 
-                print('hello fileoauoe', yml_data)
                 local items = lyaml.load(content)
                 html = html .. '<div class="projects">'
                 for _, item in ipairs(items) do
@@ -335,12 +330,14 @@ local function build_html()
                     if item.description then
                         html = html .. '<p>' .. item.description .. '</p>\n'
                     end
+                    if item.published then
+                        html = html .. '<p><b>Published:</b> ' .. item.published .. '</p>\n'
+                    end
                     if item.address then
                         html = html .. '<p>' .. item.address .. '</p>\n'
                     end
                     if item.url then
                         html = html .. '<a href="' .. item.url .. '">' .. item.name .. '</a>\n'
-
                     end
                     if item.links then
                         html = html .. '<ul class="links">\n'
@@ -350,14 +347,21 @@ local function build_html()
                         html = html .. '</ul>\n'
                     end
                     if item.category then
-                        html = html .. '<p>Category: <b>' .. item.category .. '</b></p>\n'
+                        html = html .. '<p><b>Category:</b> ' .. item.category .. '</p>\n'
                     end
                     local color = 'black'
                     if item.status == 'Active' then
                             color = 'green'
                     end
                     if item.status then
-                        html = html .. '<p>Status: <b class="text-' .. string.lower(item.status) .. '">' .. item.status .. ' ' .. (item.eol or '') .. '</b></p>\n'
+                        html = html .. '<p><b>Status:</b> <span class="text-' .. string.lower(item.status) .. '">' .. item.status .. ' ' .. (item.eol or '') .. '</span></p>\n'
+                    end
+
+                    if item.synopsis then
+                        html = html .. '<br/><p>' .. item.synopsis .. '</p><br/>\n'
+                    end
+                    if item.read_more then
+                        html = html .. '<a href="' .. item.read_more .. '"> Read more... </a><br/>\n'
                     end
                     html = html .. '</div>\n'
                 end
