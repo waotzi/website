@@ -206,7 +206,7 @@ local function build_md()
     
         print(md_path)
 
-        local post_data = string.format("- name: %s\n  category: %s\n  published: %s\n  synopsis: %s\n  image: /posts/%s\n  read_more: %s\n", 
+        local post_data = string.format("- name: %s\n  category: %s\n  published: %s\n  synopsis: %s\n  image: /posts/%s\n  url: %s\n  read_more: 'true'\n", 
             meta.title, meta.tags, fmt_date, meta.description, meta.image, md_path:gsub("%.md$", ".html"))
         exgest(posts_yaml, post_data)
     end
@@ -324,7 +324,14 @@ local function build_html()
                 for _, item in ipairs(items) do
                     html = html .. '<div class="project '  .. string.lower(item.status or '') .. '">\n'
                     if item.image then
+                        if item.url then
+                            html = html .. '<a href="' .. item.url .. '">\n'
+                        end
                         html = html .. '<img src="' .. item.image .. '" alt="' .. item.name .. '">\n'
+
+                        if item.url then
+                            html = html .. '</a>\n'
+                        end
                     end
                     html = html .. '<h2>' .. item.name .. '</h2>\n'
                     if item.description then
@@ -336,15 +343,15 @@ local function build_html()
                     if item.address then
                         html = html .. '<p>' .. item.address .. '</p>\n'
                     end
-                    if item.url then
-                        html = html .. '<a href="' .. item.url .. '">' .. item.name .. '</a>\n'
-                    end
+
                     if item.links then
                         html = html .. '<ul class="links">\n'
                         for _, link in ipairs(item.links) do
                             html = html .. '<li><a href="' .. link.url .. '">' .. link.name .. '</a></li>\n'
                         end
                         html = html .. '</ul>\n'
+                    elseif item.url and item.read_more == nil then
+                        html = html .. '<a href="' .. item.url .. '">' .. item.name .. '</a>\n'
                     end
                     if item.category then
                         html = html .. '<p><b>Category:</b> ' .. item.category .. '</p>\n'
@@ -361,7 +368,7 @@ local function build_html()
                         html = html .. '<p>' .. item.synopsis .. '</p>\n'
                     end
                     if item.read_more then
-                        html = html .. '<a href="' .. item.read_more .. '"> Read more... </a>\n'
+                        html = html .. '<a href="' .. item.url .. '"> Read more... </a>\n'
                     end
                     html = html .. '</div>\n'
                 end

@@ -115,6 +115,10 @@ pre code {
 }
 
 
+#posts img {
+  width: 300px;
+}
+
 #donate img {
   width: 128px;
 }

@@ -3,6 +3,7 @@
   status: Active
   image: /projects/ukuvota.png
   description: Empowering Collaborative Decision-Making
+  url: https://ukuvota.world/
   links:
     - name: Web app
       url: https://ukuvota.world/
@@ -15,6 +16,7 @@
   eol: 2022
   image: /projects/geocats.png
   description: A Retro-style 2D Action Platformer
+  url: https://geocats.netlify.app/
   links:
     - name: Website
       url: https://geocats.netlify.app/
