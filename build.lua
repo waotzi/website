@@ -211,7 +211,7 @@ local function build_md()
             exgest(blog_file, post_img)
         end
         -- add post links to index file
-        local post_data = string.format("### [%s](%s)\n**Published:** %s\n**Tags:** %s\n**Synopsis:** %s\n", 
+        local post_data = string.format("### [%s](%s)\n**Published:** %s\n\n**Tags:** %s\n\n**Synopsis:** %s\n\n", 
         meta.title, md_path, fmt_date, meta.tags, meta.description)
         exgest(blog_file, post_data)
     end
