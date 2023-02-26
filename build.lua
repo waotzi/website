@@ -358,10 +358,10 @@ local function build_html()
                     end
 
                     if item.synopsis then
-                        html = html .. '<br/><p>' .. item.synopsis .. '</p><br/>\n'
+                        html = html .. '<p>' .. item.synopsis .. '</p>\n'
                     end
                     if item.read_more then
-                        html = html .. '<a href="' .. item.read_more .. '"> Read more... </a><br/>\n'
+                        html = html .. '<a href="' .. item.read_more .. '"> Read more... </a>\n'
                     end
                     html = html .. '</div>\n'
                 end

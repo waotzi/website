@@ -122,18 +122,6 @@ pre code {
 article img {
   border-radius: 1rem;
 }
-#posts p {
-  margin: auto;
-}
-
-#posts h3 {
-  text-align: center;
-}
-
-#posts img {
-  margin-top: 4rem;
-}
-
 .projects {
   display: flex;
   text-align: left;
