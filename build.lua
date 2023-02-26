@@ -9,7 +9,6 @@ local base_url_gmi = 'gemini://waotzi.org'
 
 local content_dir = root_dir .. '/content'
 local posts_dir = root_dir .. '/content/posts'
-local profolio_dir = root_dir .. '/content/profolio'
 local pub_dir = root_dir .. '/public'
 local static_dir = root_dir .. '/static'
 local partials_dir = root_dir .. '/partials'
@@ -280,7 +279,7 @@ local function build_html()
             local has_yaml = ingest(file_path):sub(1, 3) == '---'
             local rtn_meta = shallow_copy(default_meta)
             rtn_meta['url'] = rtn_meta['url'] .. relative_path
-            local external_data = nil
+            local yml_data = nil
             local body_tag = ""
             if has_yaml then
                 file_content = ingest(file_path)
@@ -296,8 +295,8 @@ local function build_html()
                     else
                         rtn_meta[k] = v
                     end
-                    if k == "data" then
-                        external_data = v
+                    if k == "yml_data" then
+                        yml_data = v
                     end
                 end
             end
@@ -317,31 +316,52 @@ local function build_html()
             
             -- convert md to html
             html = html .. os_capture('./bin/md2html ' .. md_file)
-            if external_data then
-                print(content_dir .. '/' .. external_data)
-                local file = io.open(content_dir .. '/' .. external_data, "r")
+            -- add yml content if there is any
+            if yml_data then
+                print(content_dir .. '/' .. yml_data)
+                local file = io.open(content_dir .. '/' .. yml_data, "r")
                 local content = file:read("*all")
                 file:close()
-                local projects = lyaml.load(content)
+
+                print('hello fileoauoe', yml_data)
+                local items = lyaml.load(content)
                 html = html .. '<div class="projects">'
-                for _, project in ipairs(projects) do
-                    html = html .. '<div class="project '  .. string.lower(project.status) .. '">\n'
-                    html = html .. '<img src="' .. project.image .. '" alt="' .. project.name .. '">\n'
-                    html = html .. '<h2>' .. project.name .. '</h2>\n'
-                    html = html .. '<p>' .. project.description .. '</p>\n'
-                    html = html .. '<ul class="links">\n'
-                    for _, link in ipairs(project.links) do
-                        html = html .. '<li><a href="' .. link.url .. '">' .. link.name .. '</a></li>\n'
+                for _, item in ipairs(items) do
+                    html = html .. '<div class="project '  .. string.lower(item.status or '') .. '">\n'
+                    if item.image then
+                        html = html .. '<img src="' .. item.image .. '" alt="' .. item.name .. '">\n'
                     end
-                    html = html .. '</ul>\n'
-                    html = html .. '<p>Category: <b>' .. project.category .. '</b></p>\n'
+                    html = html .. '<h2>' .. item.name .. '</h2>\n'
+                    if item.description then
+                        html = html .. '<p>' .. item.description .. '</p>\n'
+                    end
+                    if item.address then
+                        html = html .. '<p>' .. item.address .. '</p>\n'
+                    end
+                    if item.url then
+                        html = html .. '<a href="' .. item.url .. '">' .. item.name .. '</a>\n'
+
+                    end
+                    if item.links then
+                        html = html .. '<ul class="links">\n'
+                        for _, link in ipairs(item.links) do
+                            html = html .. '<li><a href="' .. link.url .. '">' .. link.name .. '</a></li>\n'
+                        end
+                        html = html .. '</ul>\n'
+                    end
+                    if item.category then
+                        html = html .. '<p>Category: <b>' .. item.category .. '</b></p>\n'
+                    end
                     local color = 'black'
-                    if project.status == 'Active' then
+                    if item.status == 'Active' then
                             color = 'green'
                     end
-                    html = html .. '<p>Status: <b class="text-' .. string.lower(project.status) .. '">' .. project.status .. ' ' .. (project.eol or '') .. '</b></p>\n'
+                    if item.status then
+                        html = html .. '<p>Status: <b class="text-' .. string.lower(item.status) .. '">' .. item.status .. ' ' .. (item.eol or '') .. '</b></p>\n'
+                    end
                     html = html .. '</div>\n'
                 end
+
                 html = html .. '</div>\n'
 
             end
