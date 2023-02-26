@@ -42,18 +42,6 @@ footer {
 footer a {
   padding: 0.5rem;
 }
-nav a { text-decoration: none ; color: inherit; }
-
-
-body > nav {
-  flex-basis: content;
-  padding-right: 1vw;
-  min-width: 16em;
-}
-
-nav ul { display: flex; flex-direction: column; list-style-type: none; list-style-position: outside; padding-left: 0;  }
-
-nav ul ul { padding-left: 1em }
 
 footer { display: flex; justify-content: space-between; }
 
@@ -91,7 +79,7 @@ footer img {
   width: 1rem;
 }
 
-header h1 {
+nav {
   color: white;
   display: flex;
   justify-content: space-around;
@@ -99,9 +87,25 @@ header h1 {
   font-weight: 100;
 }
 
-header hr {
-  border: solid 0.1rem #9d9;
+nav a { 
+  color: #4d4;
+  text-decoration: none;
+}
+nav a:hover {
+  color: #BA6FCC;
+}
+
+
+hr {
+  border-solid: solid;
+  border-size: 0.1rem;
   border-radius: 2px;
+}
+.purple {
+  border-color: #BA6FCC;
+}
+.green {
+  border-color: #4d4;
 }
 
 pre code {
@@ -121,7 +125,7 @@ pre code {
   width: 128px;
 }
 
-img {
+article img {
   border-radius: 1rem;
 }
 #posts p {
@@ -162,10 +166,4 @@ img {
 
 .text-archived {
   color: #FF6666;
-}
-h1 a {
-  color: #4d4;
-}
-h1 a:hover {
-  color: #BA6FCC;
 }
