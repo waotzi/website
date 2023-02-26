@@ -3,7 +3,7 @@ description: I am a freedom fighter and a software wizard, my goal in life is to
 
 ---
 
-![waotzi](warrior_wizard.jpeg)
+![waotzi](waotzi_warrior.jpeg)
 
 # Wao Tzi
 
