@@ -5,7 +5,7 @@ description: I am a freedom fighter and a software wizard, my goal in life is to
 
 ![waotzi](warrior_wizard.jpeg)
 
-# wo φ zu
+# Wao Tzi
 
 > _"Wao Tzi, Wao Tzu, Wo Zu, Wozu? For what reason?"_, inspired by Lao Zi, Lao Tzu, Lao Tze - my favorite philosopher
 
