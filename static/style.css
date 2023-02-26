@@ -31,19 +31,6 @@ article {
   overflow-wrap: break-word;
 }
 
-footer {
-  display: flex;
-  flex-wrap: wrap;
-  flex-basis: 100%;
-  flex-shrink: 0;
-  padding: 0 1rem;
-}
-
-footer a {
-  padding: 0.5rem;
-}
-
-footer { display: flex; justify-content: space-between; }
 
 img { display: block; margin-left: auto; margin-right: auto; width: 50%; }
 
@@ -65,8 +52,11 @@ h3 { font-size: 1.2em }
 
 h4 { font-size: 1em }
 
-
 footer {
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  flex-shrink: 0;
+  padding: 0 1rem;
   padding-top: 4rem;
   padding-bottom: 1rem;
   display: flex;
@@ -74,18 +64,29 @@ footer {
   align-items: center;
 }
 
+footer a {
+  padding: 0.5rem;
+}
+
+footer { display: flex; justify-content: space-between; }
+
 footer img {
   width: 1rem;
 }
 
 nav {
-  color: white;
+  font-weight: 100;
+  padding: 1rem;
+}
+.flex {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  font-weight: 100;
 }
-
+nav * {
+  padding: 0 0.6rem;
+}
 nav a { 
   color: #4d4;
   text-decoration: none;
@@ -94,18 +95,6 @@ nav a:hover {
   color: #BA6FCC;
 }
 
-
-hr {
-  border-solid: solid;
-  border-size: 0.1rem;
-  border-radius: 2px;
-}
-.purple {
-  border-color: #BA6FCC;
-}
-.green {
-  border-color: #4d4;
-}
 
 pre code {
   font-family: fsex300;
@@ -136,7 +125,7 @@ article img {
 }
 
 #posts img {
-  padding-top: 5rem;
+  margin-top: 4rem;
 }
 
 .projects {
