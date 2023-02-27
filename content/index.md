@@ -23,4 +23,3 @@ Feel free to contact me, and who knows - maybe we can create an alliance togethe
 
 Check out my projects on my [portfolio!](/portfolio.html)
 
-*
