@@ -22,3 +22,5 @@ I wish for humanity to become free from its chains and explore the beauty of lif
 Feel free to contact me, and who knows - maybe we can create an alliance together and work towards harmony.
 
 Check out my projects on my [portfolio!](/portfolio.html)
+
+*
