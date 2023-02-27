@@ -7,7 +7,9 @@ description: I am a freedom fighter and a software wizard, my goal in life is to
 
 # Wao Tzi
 
-> _"Wao Tzi, Wao Tzu, Wo Zu, Wozu? For what reason?"_, inspired by Lao Zi, Lao Tzu, Lao Tze - my favorite philosopher
+> _"Wao Tzi, Wao Tzu, Wo Zu, Wozu? For what reason?"_
+
+> Deeply inspired by Lao Zi, Lao Tzu, Lao Tze - My favorite philosopher
 
 Welcome to my site!
 
