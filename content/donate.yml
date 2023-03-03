@@ -1,7 +1,3 @@
-- name: Ethereum, Polygon, etc.
-  address: "0x241Af3757F46c15B9b06d4987716B416795EA354"
-  image: /crypto/erc20.png
-
 - name: Litecoin
   address: LSTAUZ1d9HzhPmV6iZYiG4si19v4d8bZKP
   image: /crypto/litecoin.png
