@@ -276,7 +276,7 @@ local function build_html()
             local rtn_meta = shallow_copy(default_meta)
             rtn_meta['url'] = rtn_meta['url'] .. relative_path
             local yml_data = nil
-            local body_tag = ""
+            local body_tag = "home"
             if has_yaml then
                 file_content = ingest(file_path)
                 -- make yaml content

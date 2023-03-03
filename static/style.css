@@ -40,7 +40,7 @@ body {
   line-height: 1.5rem;
   letter-spacing: 0.1em;   
   margin: auto;
-  max-width: 800px;
+  max-width: 1200px;
   background-color: #1B1628;
   color: #FFFFFF;
 }
@@ -53,6 +53,10 @@ article {
 }
 
 
+#home {
+  max-width: 800px;
+  margin: auto;
+}
 img { display: block; margin-left: auto; margin-right: auto; width: 50%; }
 
 a {
@@ -83,6 +87,8 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 600px;
+  margin: auto;
 }
 
 footer a {
