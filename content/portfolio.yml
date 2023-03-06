@@ -24,3 +24,15 @@
       url: https://nonaco.itch.io/geocats
     - name: Source code
       url: https://github.com/waotzi/geocats
+
+- name: Kasaival
+  category: Games
+  status: In progress
+  image: /projects/kasaival.png
+  description: Kasaival is a fast-paced action survival game where you play as a flame that has spiraled out of control.
+  url: https://kasaival.rocks/
+  links:
+    - name: Website
+      url: https://kasaival.rocks/
+    - name: Source Code
+      url: https://github.com/waotzi/kasaival
