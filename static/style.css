@@ -152,10 +152,16 @@ article img {
 .archived {
   background-color: #FF666622;
 }
+.in-progress {
+  background-color: #FFFF6622;
+}
 .text-active {
   color: #66FF66;
 }
 
 .text-archived {
   color: #FF6666;
+}
+.text-in-progress {
+  color: #FFFF66;
 }

@@ -322,7 +322,15 @@ local function build_html()
                 local items = lyaml.load(content)
                 html = html .. '<div class="projects">'
                 for _, item in ipairs(items) do
-                    html = html .. '<div class="project '  .. string.lower(item.status or '') .. '">\n'
+                    -- Assuming item.status = "In Progress"
+                    local status = ''
+                    if item.status then
+                        status = string.lower(item.status:gsub("%s+", "-"))
+                    end
+                    
+                    -- output: "In-Progress"
+                    
+                    html = html .. '<div class="project '  .. status .. '">\n'
                     if item.image then
                         if item.url then
                             html = html .. '<a href="' .. item.url .. '">\n'
@@ -361,7 +369,7 @@ local function build_html()
                             color = 'green'
                     end
                     if item.status then
-                        html = html .. '<p><b>Status:</b> <span class="text-' .. string.lower(item.status) .. '">' .. item.status .. ' ' .. (item.eol or '') .. '</span></p>\n'
+                        html = html .. '<p><b>Status:</b> <span class="text-' .. status .. '">' .. item.status .. ' ' .. (item.eol or '') .. '</span></p>\n'
                     end
 
                     if item.synopsis then
